@@ -33,12 +33,15 @@ class Struktur_organisasi_model extends CI_Model
      */
     function get_all_struktur_organisasi($params = array())
     {
+        $this->db->select('struktur_organisasi.*,jemaat.nama_jemaat');
+        $this->db->from('struktur_organisasi');
+        $this->db->join('jemaat', 'struktur_organisasi.id_jemaat = jemaat.id_jemaat');
         $this->db->order_by('id_struktur', 'desc');
         if(isset($params) && !empty($params))
         {
             $this->db->limit($params['limit'], $params['offset']);
         }
-        return $this->db->get('struktur_organisasi')->result_array();
+        return $this->db->get()->result_array();
     }
         
     /*

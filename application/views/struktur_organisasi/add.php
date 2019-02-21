@@ -8,7 +8,7 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="id_admin" class="control-label">Admin</label>
+						<label for="id_admin" class="control-label"><span class="text-danger">*</span>Admin</label>
 						<div class="form-group">
 							<select name="id_admin" class="form-control">
 								<option value="">select admin</option>
@@ -21,10 +21,11 @@
 								} 
 								?>
 							</select>
+							<span class="text-danger"><?php echo form_error('id_admin');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="id_jemaat" class="control-label">Jemaat</label>
+						<label for="id_jemaat" class="control-label"><span class="text-danger">*</span>Jemaat</label>
 						<div class="form-group">
 							<select name="id_jemaat" class="form-control">
 								<option value="">select jemaat</option>
@@ -37,6 +38,7 @@
 								} 
 								?>
 							</select>
+							<span class="text-danger"><?php echo form_error('id_jemaat');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -46,6 +48,11 @@
 								<option value="">select</option>
 								<?php 
 								$jabatan_values = array(
+									'Sekertaris'=>'Sekertaris',
+									'Bendahara'=>'Bendahara',
+									'Majelis'=>'Majelis',
+									'Diaken'=>'Diaken',
+									'Pendeta'=>'Pendeta',
 								);
 
 								foreach($jabatan_values as $value => $display_text)

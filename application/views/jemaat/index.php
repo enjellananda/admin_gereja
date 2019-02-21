@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <div class="row">
     <div class="col-md-12">
         <div class="box">
@@ -9,7 +10,8 @@
             </div>
             <div class="box-body">
             	<div class="table table-responsive">
-                <table class="table table-striped">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
                     <tr>
                     	<th>Nama Jemaat</th>
 						<th>Username</th>
@@ -30,7 +32,9 @@
 						<th>Id Admin</th>
 						<th>Actions</th>
                     </tr>
+                	</thead>
                     <?php foreach($jemaat as $j){ ?>
+                    <tbody>
                     <tr>
                     	<td><?php echo $j['nama_jemaat']; ?></td>
 						<td><?php echo $j['username']; ?></td>
@@ -54,13 +58,11 @@
                             <a href="<?php echo site_url('jemaat/remove/'.$j['id_jemaat']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
+                </tbody>
                     <?php } ?>
                 </table>
-            </div>
-                <div class="pull-right">
-                    <?php echo $this->pagination->create_links(); ?>                    
-                </div>                
-            </div>
+            </div>        
+            
         </div>
     </div>
 </div>

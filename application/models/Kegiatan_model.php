@@ -31,13 +31,8 @@ class Kegiatan_model extends CI_Model
     /*
      * Get all kegiatan
      */
-    function get_all_kegiatan($params = array())
+    function get_all_kegiatan()
     {
-        $this->db->order_by('id_kegiatan', 'desc');
-        if(isset($params) && !empty($params))
-        {
-            $this->db->limit($params['limit'], $params['offset']);
-        }
         return $this->db->get('kegiatan')->result_array();
     }
         

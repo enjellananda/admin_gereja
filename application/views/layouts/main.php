@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>gkjw_dinoyo</title>
+        <title>GKJW Dinoyo</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
@@ -19,6 +19,7 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/_all-skins.min.css');?>">
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </head>
     
     <body class="hold-transition skin-blue sidebar-mini">
@@ -97,69 +98,24 @@
                             </a>
                         </li>
 						<li>
-                            <a href="#">
-                                <i class="fa fa-desktop"></i> <span>Admin</span>
-                            </a>
-                            <ul class="treeview-menu">
-								<li class="active">
-                                    <a href="<?php echo site_url('admin/add');?>"><i class="fa fa-plus"></i> Add</a>
-                                </li>
-								<li>
-                                    <a href="<?php echo site_url('admin/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
-                                </li>
-							</ul>
+                            <li>
+                                    <a href="<?php echo site_url('jemaat/index');?>"><i class="fa fa-address-card-o"></i><span> Jemaat </span></a>
+                            </li>
                         </li>
 						<li>
-                            <a href="#">
-                                <i class="fa fa-address-card-o"></i> <span>Jemaat</span>
-                            </a>
-                            <ul class="treeview-menu">
-								<li class="active">
-                                    <a href="<?php echo site_url('jemaat/add');?>"><i class="fa fa-plus"></i> Add</a>
+                                <li>
+                                    <a href="<?php echo site_url('kegiatan/index');?>"><i class="fa fa-calendar"></i><span> Kegiatan </span></a>
                                 </li>
-								<li>
-                                    <a href="<?php echo site_url('jemaat/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
-                                </li>
-							</ul>
                         </li>
 						<li>
-                            <a href="#">
-                                <i class="fa fa-calendar"></i> <span>Kegiatan</span>
-                            </a>
-                            <ul class="treeview-menu">
-								<li class="active">
-                                    <a href="<?php echo site_url('kegiatan/add');?>"><i class="fa fa-plus"></i> Add</a>
-                                </li>
-								<li>
-                                    <a href="<?php echo site_url('kegiatan/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
-                                </li>
-							</ul>
+                            <li>
+                                <a href="<?php echo site_url('struktur_organisasi/index');?>"><i class="fa fa-group"></i><span> Struktur Organisasi </span></a>
+                            </li>
                         </li>
 						<li>
-                            <a href="#">
-                                <i class="fa fa-group"></i> <span>Struktur Organisasi</span>
-                            </a>
-                            <ul class="treeview-menu">
-								<li class="active">
-                                    <a href="<?php echo site_url('struktur_organisasi/add');?>"><i class="fa fa-plus"></i> Add</a>
-                                </li>
-								<li>
-                                    <a href="<?php echo site_url('struktur_organisasi/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
-                                </li>
-							</ul>
-                        </li>
-						<li>
-                            <a href="#">
-                                <i class="fa fa-book"></i> <span>Warta</span>
-                            </a>
-                            <ul class="treeview-menu">
-								<li class="active">
-                                    <a href="<?php echo site_url('warta/add');?>"><i class="fa fa-plus"></i> Add</a>
-                                </li>
-								<li>
-                                    <a href="<?php echo site_url('warta/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
-                                </li>
-							</ul>
+                            <li>
+                                <a href="<?php echo site_url('warta/index');?>"><i class="fa fa-book"></i><span> Warta </span></a>
+                            </li>
                         </li>
                     </ul>
                 </section>
@@ -222,5 +178,12 @@
         <script src="<?php echo site_url('resources/js/moment.js');?>"></script>
         <script src="<?php echo site_url('resources/js/bootstrap-datetimepicker.min.js');?>"></script>
         <script src="<?php echo site_url('resources/js/global.js');?>"></script>
+
+        <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
+        </script>
     </body>
 </html>

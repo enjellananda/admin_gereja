@@ -12,7 +12,7 @@
                     <tr>
 						<th>Id Struktur</th>
 						<th>Id Admin</th>
-						<th>Id Jemaat</th>
+						<th>Nama Jemaat</th>
 						<th>Jabatan</th>
 						<th>Periode</th>
 						<th>Actions</th>
@@ -21,7 +21,7 @@
                     <tr>
 						<td><?php echo $s['id_struktur']; ?></td>
 						<td><?php echo $s['id_admin']; ?></td>
-						<td><?php echo $s['id_jemaat']; ?></td>
+						<td><?php echo $s['nama_jemaat']; ?></td>
 						<td><?php echo $s['jabatan']; ?></td>
 						<td><?php echo $s['periode']; ?></td>
 						<td>
