@@ -7,49 +7,7 @@
             <?php echo form_open('jemaat/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="status" class="control-label"><span class="text-danger">*</span>Status</label>
-						<div class="form-group">
-							<select name="status" class="form-control">
-								<option value="">select</option>
-								<?php 
-								$status_values = array(
-									'Menikah'=>'Menikah',
-								);
-
-								foreach($status_values as $value => $display_text)
-								{
-									$selected = ($value == $this->input->post('status')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('status');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="status_jemaat" class="control-label"><span class="text-danger">*</span>Status Jemaat</label>
-						<div class="form-group">
-							<select name="status_jemaat" class="form-control">
-								<option value="">select</option>
-								<?php 
-								$status_jemaat_values = array(
-									'Waiting'=>'Waiting',
-								);
-
-								foreach($status_jemaat_values as $value => $display_text)
-								{
-									$selected = ($value == $this->input->post('status_jemaat')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('status_jemaat');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
+          			<div class="col-md-6">
 						<label for="id_admin" class="control-label"><span class="text-danger">*</span>Admin</label>
 						<div class="form-group">
 							<select name="id_admin" class="form-control">
@@ -65,55 +23,7 @@
 							</select>
 							<span class="text-danger"><?php echo form_error('id_admin');?></span>
 						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="jenis_kelamin" class="control-label"><span class="text-danger">*</span>Jenis Kelamin</label>
-						<div class="form-group">
-							<select name="jenis_kelamin" class="form-control">
-								<option value="">select</option>
-								<?php 
-								$jenis_kelamin_values = array(
-									'Perempuan'=>'Perempuan',
-								);
-
-								foreach($jenis_kelamin_values as $value => $display_text)
-								{
-									$selected = ($value == $this->input->post('jenis_kelamin')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('jenis_kelamin');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="password" class="control-label"><span class="text-danger">*</span>Password</label>
-						<div class="form-group">
-							<input type="password" name="password" value="<?php echo $this->input->post('password'); ?>" class="form-control" id="password" />
-							<span class="text-danger"><?php echo form_error('password');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="ktp_sim" class="control-label"><span class="text-danger">*</span>Ktp Sim</label>
-						<div class="form-group">
-							<input type="text" name="ktp_sim" value="<?php echo $this->input->post('ktp_sim'); ?>" class="form-control" id="ktp_sim" />
-							<span class="text-danger"><?php echo form_error('ktp_sim');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="kk" class="control-label"><span class="text-danger">*</span>Kk</label>
-						<div class="form-group">
-							<input type="text" name="kk" value="<?php echo $this->input->post('kk'); ?>" class="form-control" id="kk" />
-							<span class="text-danger"><?php echo form_error('kk');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="pengingat" class="control-label">Pengingat</label>
-						<div class="form-group">
-							<input type="text" name="pengingat" value="<?php echo $this->input->post('pengingat'); ?>" class="has-datetimepicker form-control" id="pengingat" />
-						</div>
-					</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="nama_jemaat" class="control-label"><span class="text-danger">*</span>Nama Jemaat</label>
 						<div class="form-group">
@@ -126,6 +36,13 @@
 						<div class="form-group">
 							<input type="text" name="username" value="<?php echo $this->input->post('username'); ?>" class="form-control" id="username" />
 							<span class="text-danger"><?php echo form_error('username');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="password" class="control-label"><span class="text-danger">*</span>Password</label>
+						<div class="form-group">
+							<input type="password" name="password" value="<?php echo $this->input->post('password'); ?>" class="form-control" id="password" />
+							<span class="text-danger"><?php echo form_error('password');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -148,6 +65,28 @@
 							<input type="text" name="gereja_asal" value="<?php echo $this->input->post('gereja_asal'); ?>" class="form-control" id="gereja_asal" />
 						</div>
 					</div>
+					<div class="col-md-6">
+						<label for="jenis_kelamin" class="control-label"><span class="text-danger">*</span>Jenis Kelamin</label>
+						<div class="form-group">
+							<select name="jenis_kelamin" class="form-control">
+								<option value="">select</option>
+								<?php 
+								$jenis_kelamin_values = array(
+									'Perempuan'=>'Perempuan',
+									'Laki - Laki'=>'Laki - Laki',
+								);
+
+								foreach($jenis_kelamin_values as $value => $display_text)
+								{
+									$selected = ($value == $this->input->post('jenis_kelamin')) ? ' selected="selected"' : "";
+
+									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
+								} 
+								?>
+							</select>
+							<span class="text-danger"><?php echo form_error('jenis_kelamin');?></span>
+						</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="umur" class="control-label"><span class="text-danger">*</span>Umur</label>
 						<div class="form-group">
@@ -176,6 +115,70 @@
 							<span class="text-danger"><?php echo form_error('email');?></span>
 						</div>
 					</div>
+					<div class="col-md-6">
+						<label for="status" class="control-label"><span class="text-danger">*</span>Status</label>
+						<div class="form-group">
+							<select name="status" class="form-control">
+								<option value="">select</option>
+								<?php 
+								$status_values = array(
+									'Belum Menikah'=>'Belum Menikah',
+									'Menikah'=>'Menikah',
+								);
+
+								foreach($status_values as $value => $display_text)
+								{
+									$selected = ($value == $this->input->post('status')) ? ' selected="selected"' : "";
+
+									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
+								} 
+								?>
+							</select>
+							<span class="text-danger"><?php echo form_error('status');?></span>
+						</div>
+					</div> 	
+					<div class="col-md-6">
+						<label for="ktp_sim" class="control-label"><span class="text-danger">*</span>Ktp Sim</label>
+						<div class="form-group">
+							<input type="text" name="ktp_sim" value="<?php echo $this->input->post('ktp_sim'); ?>" class="form-control" id="ktp_sim" />
+							<span class="text-danger"><?php echo form_error('ktp_sim');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="kk" class="control-label"><span class="text-danger">*</span>Kk</label>
+						<div class="form-group">
+							<input type="text" name="kk" value="<?php echo $this->input->post('kk'); ?>" class="form-control" id="kk" />
+							<span class="text-danger"><?php echo form_error('kk');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="pengingat" class="control-label">Pengingat</label>
+						<div class="form-group">
+							<input type="text" name="pengingat" value="<?php echo $this->input->post('pengingat'); ?>" class="has-datetimepicker form-control" id="pengingat" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="status_jemaat" class="control-label"><span class="text-danger">*</span>Status Jemaat</label>
+						<div class="form-group">
+							<select name="status_jemaat" class="form-control">
+								<option value="">select</option>
+								<?php 
+								$status_jemaat_values = array(
+									'Waiting'=>'Waiting',
+									'Confirm'=>'Confirm',
+								);
+
+								foreach($status_jemaat_values as $value => $display_text)
+								{
+									$selected = ($value == $this->input->post('status_jemaat')) ? ' selected="selected"' : "";
+
+									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
+								} 
+								?>
+							</select>
+							<span class="text-danger"><?php echo form_error('status_jemaat');?></span>
+						</div>
+					</div> 					
 				</div>
 			</div>
           	<div class="box-footer">
