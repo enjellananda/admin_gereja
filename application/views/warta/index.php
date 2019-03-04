@@ -1,14 +1,17 @@
+<link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <div class="row">
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Warta Listing</h3>
-            	<div class="box-tools">
-                    <a href="<?php echo site_url('warta/add'); ?>" class="btn btn-success btn-sm">Add</a> 
+                <h3 class="box-title">Jemaat</h3>
+                <div class="box-tools">
+                    <a href="<?php echo site_url('jemaat/add'); ?>" class="btn btn-success btn-sm">Add</a>
                 </div>
             </div>
             <div class="box-body">
-                <table class="table table-striped">
+                <div class="table table-responsive">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
                     <tr>
 						<th>Id Warta</th>
 						<th>Id Admin</th>
@@ -16,6 +19,8 @@
 						<th>Wartajemaat</th>
 						<th>Actions</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php foreach($warta as $w){ ?>
                     <tr>
 						<td><?php echo $w['id_warta']; ?></td>
@@ -28,6 +33,7 @@
                         </td>
                     </tr>
                     <?php } ?>
+                </tbody>
                 </table>
                 <div class="pull-right">
                     <?php echo $this->pagination->create_links(); ?>                    

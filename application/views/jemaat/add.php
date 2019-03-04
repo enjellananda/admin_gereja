@@ -7,23 +7,6 @@
             <?php echo form_open('jemaat/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
-          			<div class="col-md-6">
-						<label for="id_admin" class="control-label"><span class="text-danger">*</span>Admin</label>
-						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $this->input->post('id_admin')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('id_admin');?></span>
-						</div>
-					</div> 
 					<div class="col-md-6">
 						<label for="nama_jemaat" class="control-label"><span class="text-danger">*</span>Nama Jemaat</label>
 						<div class="form-group">
@@ -100,14 +83,14 @@
 							<input type="text" name="pekerjaan" value="<?php echo $this->input->post('pekerjaan'); ?>" class="form-control" id="pekerjaan" />
 							<span class="text-danger"><?php echo form_error('pekerjaan');?></span>
 						</div>
-					</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="nomer_telfon" class="control-label"><span class="text-danger">*</span>Nomer Telfon</label>
 						<div class="form-group">
 							<input type="text" name="nomer_telfon" value="<?php echo $this->input->post('nomer_telfon'); ?>" class="form-control" id="nomer_telfon" />
 							<span class="text-danger"><?php echo form_error('nomer_telfon');?></span>
 						</div>
-					</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="email" class="control-label">Email</label>
 						<div class="form-group">
@@ -136,27 +119,27 @@
 							</select>
 							<span class="text-danger"><?php echo form_error('status');?></span>
 						</div>
-					</div> 	
+					</div> 
 					<div class="col-md-6">
 						<label for="ktp_sim" class="control-label"><span class="text-danger">*</span>Ktp Sim</label>
 						<div class="form-group">
 							<input type="text" name="ktp_sim" value="<?php echo $this->input->post('ktp_sim'); ?>" class="form-control" id="ktp_sim" />
 							<span class="text-danger"><?php echo form_error('ktp_sim');?></span>
 						</div>
-					</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="kk" class="control-label"><span class="text-danger">*</span>Kk</label>
 						<div class="form-group">
 							<input type="text" name="kk" value="<?php echo $this->input->post('kk'); ?>" class="form-control" id="kk" />
 							<span class="text-danger"><?php echo form_error('kk');?></span>
 						</div>
-					</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="pengingat" class="control-label">Pengingat</label>
 						<div class="form-group">
 							<input type="text" name="pengingat" value="<?php echo $this->input->post('pengingat'); ?>" class="has-datetimepicker form-control" id="pengingat" />
 						</div>
-					</div>
+					</div> 
 					<div class="col-md-6">
 						<label for="status_jemaat" class="control-label"><span class="text-danger">*</span>Status Jemaat</label>
 						<div class="form-group">
@@ -178,7 +161,24 @@
 							</select>
 							<span class="text-danger"><?php echo form_error('status_jemaat');?></span>
 						</div>
-					</div> 					
+					</div> 	
+					<div class="col-md-6">
+						<label for="id_admin" class="control-label"><span class="text-danger">*</span>Admin</label>
+						<div class="form-group">
+							<select name="id_admin" class="form-control">
+								<option value="">select admin</option>
+								<?php 
+								foreach($all_admin as $admin)
+								{
+									$selected = ($admin['id_admin'] == $this->input->post('id_admin')) ? ' selected="selected"' : "";
+
+									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
+								} 
+								?>
+							</select>
+							<span class="text-danger"><?php echo form_error('id_admin');?></span>
+						</div>
+					</div> 			
 				</div>
 			</div>
           	<div class="box-footer">

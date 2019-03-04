@@ -3,13 +3,13 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Jemaat Listing</h3>
-            	<div class="box-tools">
-                    <a href="<?php echo site_url('jemaat/add'); ?>" class="btn btn-success btn-sm">Add</a> 
+                <h3 class="box-title">Jemaat</h3>
+                <div class="box-tools">
+                    <a href="<?php echo site_url('jemaat/add'); ?>" class="btn btn-success btn-sm">Add</a>
                 </div>
             </div>
             <div class="box-body">
-            	<div class="table table-responsive">
+                <div class="table table-responsive">
                 <table id="myTable" class="table table-bordered table-striped">
                     <thead>
                     <tr>
@@ -33,8 +33,8 @@
 						<th>Actions</th>
                     </tr>
                 	</thead>
+                	<tbody>
                     <?php foreach($jemaat as $j){ ?>
-                    <tbody>
                     <tr>
                     	<td><?php echo $j['nama_jemaat']; ?></td>
 						<td><?php echo $j['username']; ?></td>
@@ -58,8 +58,9 @@
                             <a href="<?php echo site_url('jemaat/remove/'.$j['id_jemaat']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
-                </tbody>
+
                     <?php } ?>
+                </tbody>
                 </table>
             </div>        
             
