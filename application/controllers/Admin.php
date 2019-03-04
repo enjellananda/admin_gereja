@@ -9,11 +9,18 @@ class Admin extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Admin_model');
+        $this->load->library('form_validation');
     } 
 
     /*
      * Listing of admin
      */
+
+    public function get_userdata(){
+        $userData = $this->session->userdata();
+        return $userData;
+    }
+
     function index()
     {
         $params['limit'] = RECORDS_PER_PAGE; 
@@ -24,7 +31,11 @@ class Admin extends CI_Controller{
         $config['total_rows'] = $this->Admin_model->get_all_admin_count();
         $this->pagination->initialize($config);
 
+        //$data['user'] = $this->Admin_model->get_user_details($id_admin);
+        $userData = $this->get_userdata();
+
         $data['admin'] = $this->Admin_model->get_all_admin($params);
+        //$data['username'] = $this->Admin_model->get_username();
         
         $data['_view'] = 'admin/index';
         $this->load->view('layouts/main',$data);
@@ -97,6 +108,34 @@ class Admin extends CI_Controller{
         }
         else
             show_error('The admin you are trying to delete does not exist.');
+    }
+
+    function login(){
+        $this->load->view('login/login');
+    }
+
+
+
+    public function cek_login(){
+        //Untuk validasi username dan password
+        $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]',
+                array(
+                    'required' => "Username tidak boleh kosong"
+                ));
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]',
+                array(
+                    'required' => "Password tidak boleh kosong"
+                ));
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('login/login');
+        } else {
+            $data['login'] = $this->Admin_model->cek_data_login();
+        }
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('Admin/login','refresh');
     }
     
 }
