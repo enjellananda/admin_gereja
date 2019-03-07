@@ -9,6 +9,12 @@ class Warta extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Warta_model');
+
+        if(!$this->session->userdata('logged_in')){
+            redirect('Admin/login');
+        }
+
+        $id_admin = $this->session->userdata('username');
     } 
 
     /*
