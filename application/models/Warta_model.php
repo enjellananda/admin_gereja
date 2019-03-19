@@ -66,4 +66,5 @@ class Warta_model extends CI_Model
     {
         return $this->db->delete('warta',array('id_warta'=>$id_warta));
     }
+
 }

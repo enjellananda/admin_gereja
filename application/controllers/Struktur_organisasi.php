@@ -9,6 +9,12 @@ class Struktur_organisasi extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Struktur_organisasi_model');
+
+        if(!$this->session->userdata('logged_in')){
+            redirect('Admin/login');
+        }
+
+        $id_admin = $this->session->userdata('username');
     } 
 
     /*

@@ -4,7 +4,7 @@
             <div class="box-header with-border">
               	<h3 class="box-title">Kegiatan Add</h3>
             </div>
-            <?php echo form_open('kegiatan/add'); ?>
+            <?php echo form_open_multipart('kegiatan/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
@@ -76,7 +76,8 @@
 					<div class="col-md-6">
 						<label for="pamflet" class="control-label"><span class="text-danger">*</span>Pamflet</label>
 						<div class="form-group">
-							<input type="text" name="pamflet" value="<?php echo $this->input->post('pamflet'); ?>" class="form-control" id="pamflet" />
+							<input type="file" name="pamflet" class="form-control" required="required">
+							<!-- <input type="text" name="pamflet" value="<?php echo $this->input->post('pamflet'); ?>" class="form-control" id="pamflet" /> -->
 							<span class="text-danger"><?php echo form_error('pamflet');?></span>
 						</div>
 					</div>

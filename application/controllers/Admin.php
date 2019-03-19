@@ -11,34 +11,38 @@ class Admin extends CI_Controller{
         $this->load->model('Admin_model');
         $this->load->library('form_validation');
     } 
-
     /*
      * Listing of admin
      */
 
-    public function get_userdata(){
+    function get_userdata(){
         $userData = $this->session->userdata();
         return $userData;
     }
 
     function index()
     {
+        if(!$this->session->userdata('logged_in')){
+            redirect('Admin/login');
+        }
+
+        $id_admin = $this->session->userdata('username');
+        $userData = $this->get_userdata();
+
         $params['limit'] = RECORDS_PER_PAGE; 
         $params['offset'] = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
-        
+            
         $config = $this->config->item('pagination');
         $config['base_url'] = site_url('admin/index?');
         $config['total_rows'] = $this->Admin_model->get_all_admin_count();
         $this->pagination->initialize($config);
 
-        //$data['user'] = $this->Admin_model->get_user_details($id_admin);
-        $userData = $this->get_userdata();
-
         $data['admin'] = $this->Admin_model->get_all_admin($params);
-        //$data['username'] = $this->Admin_model->get_username();
-        
+            
         $data['_view'] = 'admin/index';
-        $this->load->view('layouts/main',$data);
+            $this->load->view('layouts/main',$data);
+        
+        
     }
 
     /*
@@ -46,6 +50,13 @@ class Admin extends CI_Controller{
      */
     function add()
     {   
+        if(!$this->session->userdata('logged_in')){
+            redirect('Admin/login');
+        }
+
+        $id_admin = $this->session->userdata('username');
+        $userData = $this->get_userdata();
+        
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
@@ -115,8 +126,7 @@ class Admin extends CI_Controller{
     }
 
 
-
-    public function cek_login(){
+    function cek_login(){
         //Untuk validasi username dan password
         $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]',
                 array(
@@ -126,16 +136,44 @@ class Admin extends CI_Controller{
                 array(
                     'required' => "Password tidak boleh kosong"
                 ));
-        if ($this->form_validation->run() == FALSE) {
+
+        if($this->form_validation->run() === FALSE){
             $this->load->view('login/login');
         } else {
-            $data['login'] = $this->Admin_model->cek_data_login();
+            $username = $this->input->post('username');
+            $password = md5($this->input->post('password'));
+            
+            $id_admin = $this->Admin_model->login_user($username, $password);
+
+            if($id_admin){
+                // Buat session
+                $user_data = array(
+                    'id_admin' => $id_admin,
+                    'username' => $username,
+                    'logged_in' => true
+                );
+                $this->session->set_userdata($user_data);
+                // Set message
+                $this->session->set_flashdata('user_loggedin', 'Anda sudah login');
+                redirect('Admin/index');
+            } else {
+                // Set message
+                $this->session->set_flashdata('login_failed', 'Login invalid');
+                redirect('Admin/login');
+            }       
         }
     }
 
-    public function logout(){
-        $this->session->sess_destroy();
+
+    function logout(){
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('id_admin');
+        $this->session->unset_userdata('username');
+        // Set message
+        $this->session->set_flashdata('user_loggedout', 'Anda sudah log out');
+
         redirect('Admin/login','refresh');
+        
     }
     
 }

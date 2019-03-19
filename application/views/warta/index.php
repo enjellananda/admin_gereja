@@ -5,7 +5,7 @@
             <div class="box-header">
                 <h3 class="box-title">Jemaat</h3>
                 <div class="box-tools">
-                    <a href="<?php echo site_url('jemaat/add'); ?>" class="btn btn-success btn-sm">Add</a>
+                    <a href="<?php echo site_url('warta/add'); ?>" class="btn btn-success btn-sm">Add</a>
                 </div>
             </div>
             <div class="box-body">

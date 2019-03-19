@@ -67,25 +67,28 @@ class Admin_model extends CI_Model
         return $this->db->delete('admin',array('id_admin'=>$id_admin));
     }
 
-    public function cek_data_login(){
-        $query = $this->db->get_where('admin', array(
-            'username' => $this->input->post('username'),
-            'password' => md5($this->input->post('password')))
-        );
-        if($query->num_rows()== 0){
-            $this->session->set_flashdata('msg','Cek Kembali username dan password');
-            redirect('Admin/login','refresh');
-        }else{
-            $this->session->set_userdata($query->row_array());
-            redirect('Admin/index','refresh');
+    function logged_id()
+    {
+        return $this->session->userdata('id_admin');
+    }
+
+    public function login_user($username, $password){
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+
+        $result = $this->db->get('admin');
+        
+        if($result->num_rows() == 1){
+            return $result->row(0)->id_admin;
+        } else {
+            return false;
         }
     }
 
-    public function get_user_details($id_admin)
+    public function get_user_details($username)
     {
-       $this->db->select('username');
-       $this->db->where('id_admin', $id_admin);
        $result = $this->db->get('admin');
+
        if ($result->num_rows() == 1) {
            return $result->row();
        } else {
