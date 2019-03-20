@@ -118,6 +118,11 @@
                                 <a href="<?php echo site_url('warta/index');?>"><i class="fa fa-book"></i><span> Warta </span></a>
                             </li>
                         </li>
+                        <li>
+                            <li>
+                                <a href="<?php echo site_url('warta/index');?>"><i class="fa fa-book"></i><span> Kotbah </span></a>
+                            </li>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
