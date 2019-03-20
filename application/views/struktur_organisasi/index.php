@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Jemaat</h3>
+                <h3 class="box-title">Struktur Organisasi</h3>
                 <div class="box-tools">
                     <a href="<?php echo site_url('jemaat/add'); ?>" class="btn btn-success btn-sm">Add</a>
                 </div>
