@@ -4,7 +4,7 @@
             <div class="box-header with-border">
               	<h3 class="box-title">Struktur Organisasi Add</h3>
             </div>
-            <?php echo form_open('struktur_organisasi/add'); ?>
+            <?php echo form_open_multipart('struktur_organisasi/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">

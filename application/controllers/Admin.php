@@ -11,7 +11,6 @@ class Admin extends CI_Controller{
         $this->load->model('Admin_model');
         $this->load->library('form_validation');
     } 
-
     /*
      * Listing of admin
      */
