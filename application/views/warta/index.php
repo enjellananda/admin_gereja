@@ -25,7 +25,7 @@
                     <tr>
 						<td><?php echo $w['id_warta']; ?></td>
 						<td><?php echo $w['id_admin']; ?></td>
-						<td><?php echo $w['tanggal_terbit']; ?></td>
+						<td><?php $tgl = $w['tanggal_terbit']; echo date("d F Y", strtotime($tgl)); ?></td>
 						<td><?php echo $w['wartajemaat']; ?></td>
 						<td>
                             <a href="<?php echo site_url('warta/edit/'.$w['id_warta']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 

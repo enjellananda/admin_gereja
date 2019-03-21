@@ -39,46 +39,46 @@ class Jemaat extends CI_Controller{
     /*
      * Adding a new jemaat
      */
-    function add()
+   function add()
     {   
-        $this->load->library('form_validation');
-
-		$this->form_validation->set_rules('email','Email','valid_email');
-		$this->form_validation->set_rules('status','Status','required');
-		$this->form_validation->set_rules('status_jemaat','Status Jemaat','required');
-		$this->form_validation->set_rules('id_admin','Id Admin','required');
-		$this->form_validation->set_rules('jenis_kelamin','Jenis Kelamin','required');
-		$this->form_validation->set_rules('password','Password','required');
-		$this->form_validation->set_rules('ktp_sim','Ktp Sim','required');
-		$this->form_validation->set_rules('kk','Kk','required');
-		$this->form_validation->set_rules('nama_jemaat','Nama Jemaat','required');
-		$this->form_validation->set_rules('username','Username','required');
-		$this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required');
-		$this->form_validation->set_rules('alamat','Alamat','required');
-		$this->form_validation->set_rules('umur','Umur','required');
-		$this->form_validation->set_rules('pekerjaan','Pekerjaan','required');
-		$this->form_validation->set_rules('nomer_telfon','Nomer Telfon','required');
-		
-		if($this->form_validation->run())     
+        if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
-				'status' => $this->input->post('status'),
-				'status_jemaat' => $this->input->post('status_jemaat'),
-				'id_admin' => $this->input->post('id_admin'),
-				'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-				'password' => $this->input->post('password'),
-				'ktp_sim' => $this->input->post('ktp_sim'),
-				'kk' => $this->input->post('kk'),
-				'pengingat' => $this->input->post('pengingat'),
-				'nama_jemaat' => $this->input->post('nama_jemaat'),
-				'username' => $this->input->post('username'),
-				'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-				'alamat' => $this->input->post('alamat'),
-				'gereja_asal' => $this->input->post('gereja_asal'),
-				'umur' => $this->input->post('umur'),
-				'pekerjaan' => $this->input->post('pekerjaan'),
-				'nomer_telfon' => $this->input->post('nomer_telfon'),
-				'email' => $this->input->post('email'),
+                'nomor_induk' => $this->input->post('nomor_induk'),
+                'id_admin' => $this->input->post('id_admin'),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'status' => $this->input->post('status'),
+                'status_jemaat' => $this->input->post('status_jemaat'),
+                'password' => $this->input->post('password'),
+                'tanggal_sidi' => $this->input->post('tanggal_sidi'),
+                'nama_pasangan' => $this->input->post('nama_pasangan'),
+                'gereja_pasangan' => $this->input->post('gereja_pasangan'),
+                'nomor induk_perkawinan' => $this->input->post('nomor induk_perkawinan'),
+                'tempat_catatan_sipil' => $this->input->post('tempat_catatan_sipil'),
+                'tanggal_catatan_sipil' => $this->input->post('tanggal_catatan_sipil'),
+                'gereja_pemberkatan' => $this->input->post('gereja_pemberkatan'),
+                'tanggal_pemberkatan' => $this->input->post('tanggal_pemberkatan'),
+                'tanggal_cerai' => $this->input->post('tanggal_cerai'),
+                'pindah_gereja' => $this->input->post('pindah_gereja'),
+                'tanggal_pindah_gereja' => $this->input->post('tanggal_pindah_gereja'),
+                'nomor_surat_pindah' => $this->input->post('nomor_surat_pindah'),
+                'tanggal_keluar' => $this->input->post('tanggal_keluar'),
+                'nama_jemaat' => $this->input->post('nama_jemaat'),
+                'username' => $this->input->post('username'),
+                'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                'alamat' => $this->input->post('alamat'),
+                'nomer_telfon' => $this->input->post('nomer_telfon'),
+                'email' => $this->input->post('email'),
+                'surat_keterangan' => $this->input->post('surat_keterangan'),
+                'pengingat' => $this->input->post('pengingat'),
+                'tempat_lahir' => $this->input->post('tempat_lahir'),
+                'nama_ayah' => $this->input->post('nama_ayah'),
+                'nama_ibu' => $this->input->post('nama_ibu'),
+                'gereja_baptis' => $this->input->post('gereja_baptis'),
+                'gereja_sidi' => $this->input->post('gereja_sidi'),
+                'tanggal baptis' => $this->input->post('tanggal baptis'),
+                'alasan_cerai' => $this->input->post('alasan_cerai'),
+                'keterangan' => $this->input->post('keterangan'),
             );
             
             $jemaat_id = $this->Jemaat_model->add_jemaat($params);
@@ -86,8 +86,8 @@ class Jemaat extends CI_Controller{
         }
         else
         {
-			$this->load->model('Admin_model');
-			$data['all_admin'] = $this->Admin_model->get_all_admin();
+            $this->load->model('Admin_model');
+            $data['all_admin'] = $this->Admin_model->get_all_admin();
             
             $data['_view'] = 'jemaat/add';
             $this->load->view('layouts/main',$data);
@@ -97,51 +97,51 @@ class Jemaat extends CI_Controller{
     /*
      * Editing a jemaat
      */
-    function edit($id_jemaat)
+     function edit($id_jemaat)
     {   
         // check if the jemaat exists before trying to edit it
         $data['jemaat'] = $this->Jemaat_model->get_jemaat($id_jemaat);
         
         if(isset($data['jemaat']['id_jemaat']))
         {
-            $this->load->library('form_validation');
-
-			$this->form_validation->set_rules('email','Email','valid_email');
-			$this->form_validation->set_rules('status','Status','required');
-			$this->form_validation->set_rules('status_jemaat','Status Jemaat','required');
-			$this->form_validation->set_rules('id_admin','Id Admin','required');
-			$this->form_validation->set_rules('jenis_kelamin','Jenis Kelamin','required');
-			$this->form_validation->set_rules('password','Password','required');
-			$this->form_validation->set_rules('ktp_sim','Ktp Sim','required');
-			$this->form_validation->set_rules('kk','Kk','required');
-			$this->form_validation->set_rules('nama_jemaat','Nama Jemaat','required');
-			$this->form_validation->set_rules('username','Username','required');
-			$this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required');
-			$this->form_validation->set_rules('alamat','Alamat','required');
-			$this->form_validation->set_rules('umur','Umur','required');
-			$this->form_validation->set_rules('pekerjaan','Pekerjaan','required');
-			$this->form_validation->set_rules('nomer_telfon','Nomer Telfon','required');
-		
-			if($this->form_validation->run())     
+            if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
-					'status' => $this->input->post('status'),
-					'status_jemaat' => $this->input->post('status_jemaat'),
-					'id_admin' => $this->input->post('id_admin'),
-					'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-					'password' => $this->input->post('password'),
-					'ktp_sim' => $this->input->post('ktp_sim'),
-					'kk' => $this->input->post('kk'),
-					'pengingat' => $this->input->post('pengingat'),
-					'nama_jemaat' => $this->input->post('nama_jemaat'),
-					'username' => $this->input->post('username'),
-					'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-					'alamat' => $this->input->post('alamat'),
-					'gereja_asal' => $this->input->post('gereja_asal'),
-					'umur' => $this->input->post('umur'),
-					'pekerjaan' => $this->input->post('pekerjaan'),
-					'nomer_telfon' => $this->input->post('nomer_telfon'),
-					'email' => $this->input->post('email'),
+                    'nomor_induk' => $this->input->post('nomor_induk'),
+                    'id_admin' => $this->input->post('id_admin'),
+                    'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                    'status' => $this->input->post('status'),
+                    'status_jemaat' => $this->input->post('status_jemaat'),
+                    'password' => $this->input->post('password'),
+                    'tanggal_sidi' => $this->input->post('tanggal_sidi'),
+                    'nama_pasangan' => $this->input->post('nama_pasangan'),
+                    'gereja_pasangan' => $this->input->post('gereja_pasangan'),
+                    'nomor induk_perkawinan' => $this->input->post('nomor induk_perkawinan'),
+                    'tempat_catatan_sipil' => $this->input->post('tempat_catatan_sipil'),
+                    'tanggal_catatan_sipil' => $this->input->post('tanggal_catatan_sipil'),
+                    'gereja_pemberkatan' => $this->input->post('gereja_pemberkatan'),
+                    'tanggal_pemberkatan' => $this->input->post('tanggal_pemberkatan'),
+                    'tanggal_cerai' => $this->input->post('tanggal_cerai'),
+                    'pindah_gereja' => $this->input->post('pindah_gereja'),
+                    'tanggal_pindah_gereja' => $this->input->post('tanggal_pindah_gereja'),
+                    'nomor_surat_pindah' => $this->input->post('nomor_surat_pindah'),
+                    'tanggal_keluar' => $this->input->post('tanggal_keluar'),
+                    'nama_jemaat' => $this->input->post('nama_jemaat'),
+                    'username' => $this->input->post('username'),
+                    'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+                    'alamat' => $this->input->post('alamat'),
+                    'nomer_telfon' => $this->input->post('nomer_telfon'),
+                    'email' => $this->input->post('email'),
+                    'surat_keterangan' => $this->input->post('surat_keterangan'),
+                    'pengingat' => $this->input->post('pengingat'),
+                    'tempat_lahir' => $this->input->post('tempat_lahir'),
+                    'nama_ayah' => $this->input->post('nama_ayah'),
+                    'nama_ibu' => $this->input->post('nama_ibu'),
+                    'gereja_baptis' => $this->input->post('gereja_baptis'),
+                    'gereja_sidi' => $this->input->post('gereja_sidi'),
+                    'tanggal baptis' => $this->input->post('tanggal baptis'),
+                    'alasan_cerai' => $this->input->post('alasan_cerai'),
+                    'keterangan' => $this->input->post('keterangan'),
                 );
 
                 $this->Jemaat_model->update_jemaat($id_jemaat,$params);            
@@ -149,8 +149,8 @@ class Jemaat extends CI_Controller{
             }
             else
             {
-				$this->load->model('Admin_model');
-				$data['all_admin'] = $this->Admin_model->get_all_admin();
+                $this->load->model('Admin_model');
+                $data['all_admin'] = $this->Admin_model->get_all_admin();
 
                 $data['_view'] = 'jemaat/edit';
                 $this->load->view('layouts/main',$data);
@@ -159,6 +159,7 @@ class Jemaat extends CI_Controller{
         else
             show_error('The jemaat you are trying to edit does not exist.');
     } 
+
 
     /*
      * Deleting jemaat

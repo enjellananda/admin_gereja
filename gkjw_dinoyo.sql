@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2019 at 09:52 AM
+-- Generation Time: Mar 21, 2019 at 01:32 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id_admin` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
-(1, 'admin1', 'gkjwdinoyo1'),
+(1, 'admin1', 'e00cf25ad42683b3df678c61f42c6bda'),
 (2, 'admin2', 'gkjwdinoyo2');
 
 -- --------------------------------------------------------
@@ -49,34 +49,52 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `jemaat` (
-  `id_jemaat` int(11) NOT NULL,
+  `id_jemaat` int(50) NOT NULL,
+  `nomor_induk` varchar(20) NOT NULL,
   `id_admin` int(11) NOT NULL,
   `nama_jemaat` varchar(255) NOT NULL,
   `username` varchar(10) NOT NULL,
   `password` varchar(20) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `alamat` varchar(255) NOT NULL,
-  `gereja_asal` varchar(255) NOT NULL,
   `jenis_kelamin` enum('Perempuan','Laki - Laki') NOT NULL,
-  `umur` int(5) NOT NULL,
-  `pekerjaan` varchar(50) NOT NULL,
   `nomer_telfon` varchar(15) NOT NULL,
   `email` varchar(100) NOT NULL,
   `status` enum('Menikah','Belum Menikah') NOT NULL,
-  `ktp_sim` varchar(255) NOT NULL,
-  `kk` varchar(255) NOT NULL,
+  `surat_keterangan` varchar(255) NOT NULL,
   `status_jemaat` enum('Confirm','Waiting') NOT NULL,
-  `pengingat` datetime NOT NULL
+  `pengingat` datetime NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `nama_ayah` varchar(50) NOT NULL,
+  `nama_ibu` varchar(50) NOT NULL,
+  `gereja_baptis` varchar(50) NOT NULL,
+  `gereja_sidi` varchar(50) NOT NULL,
+  `tanggal baptis` date NOT NULL,
+  `tanggal_sidi` date NOT NULL,
+  `nama_pasangan` varchar(50) NOT NULL,
+  `gereja_pasangan` varchar(50) NOT NULL,
+  `nomor induk_perkawinan` varchar(50) NOT NULL,
+  `tempat_catatan_sipil` varchar(50) NOT NULL,
+  `tanggal_catatan_sipil` date NOT NULL,
+  `gereja_pemberkatan` varchar(50) NOT NULL,
+  `tanggal_pemberkatan` date NOT NULL,
+  `alasan_cerai` text NOT NULL,
+  `tanggal_cerai` date NOT NULL,
+  `pindah_gereja` varchar(50) NOT NULL,
+  `tanggal_pindah_gereja` date NOT NULL,
+  `nomor_surat_pindah` varchar(50) NOT NULL,
+  `keterangan` text NOT NULL,
+  `tanggal_keluar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jemaat`
 --
 
-INSERT INTO `jemaat` (`id_jemaat`, `id_admin`, `nama_jemaat`, `username`, `password`, `tanggal_lahir`, `alamat`, `gereja_asal`, `jenis_kelamin`, `umur`, `pekerjaan`, `nomer_telfon`, `email`, `status`, `ktp_sim`, `kk`, `status_jemaat`, `pengingat`) VALUES
-(1, 1, 'Yonatan Kristian Maryono', 'yonatan', 'yonatan', '2019-02-02', 'Lumajang', 'GBI Lumajang', 'Laki - Laki', 20, 'Pelajar', '+6285241577612', 'yonatan@gmail.com', 'Belum Menikah', 'ktp1.jpg', 'kk1.jpg', 'Waiting', '0000-00-00 00:00:00'),
-(8, 2, 'Enjella Nanda', 'enjella', '090798', '0000-00-00', 'malang', 'GPIL Langkea Raya', 'Perempuan', 21, 'Pelajar', '085241577612', 'nandaenjella@gmail.com', 'Menikah', 'KTP_ENJELLA.JPG', 'KK_ENJELLA.JPG', 'Waiting', '0000-00-00 00:00:00'),
-(9, 1, 'Chenttly Enggar', 'admin', 'admin', '0000-00-00', 'Jalan Gagak Baru No. 12', 'GKJW Tunjung Sekar', 'Perempuan', 23, 'Pelajar', '089898', 'nandaenjella@gmail.com', 'Menikah', 'as ns', 'kk', 'Confirm', '0000-00-00 00:00:00');
+INSERT INTO `jemaat` (`id_jemaat`, `nomor_induk`, `id_admin`, `nama_jemaat`, `username`, `password`, `tanggal_lahir`, `alamat`, `jenis_kelamin`, `nomer_telfon`, `email`, `status`, `surat_keterangan`, `status_jemaat`, `pengingat`, `tempat_lahir`, `nama_ayah`, `nama_ibu`, `gereja_baptis`, `gereja_sidi`, `tanggal baptis`, `tanggal_sidi`, `nama_pasangan`, `gereja_pasangan`, `nomor induk_perkawinan`, `tempat_catatan_sipil`, `tanggal_catatan_sipil`, `gereja_pemberkatan`, `tanggal_pemberkatan`, `alasan_cerai`, `tanggal_cerai`, `pindah_gereja`, `tanggal_pindah_gereja`, `nomor_surat_pindah`, `keterangan`, `tanggal_keluar`) VALUES
+(1, '', 1, 'Yonatan Kristian Maryono', 'yonatan', 'yonatan', '2019-02-02', 'Lumajang', 'Laki - Laki', '+6285241577612', 'yonatan@gmail.com', 'Belum Menikah', 'ktp1.jpg', 'Waiting', '0000-00-00 00:00:00', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', '', '', '0000-00-00'),
+(8, '', 2, 'Enjella Nanda', 'enjella', '090798', '0000-00-00', 'malang', 'Perempuan', '085241577612', 'nandaenjella@gmail.com', 'Menikah', 'KTP_ENJELLA.JPG', 'Waiting', '0000-00-00 00:00:00', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', '', '', '0000-00-00'),
+(9, '', 1, 'Chenttly Enggar', 'admin', 'admin', '0000-00-00', 'Jalan Gagak Baru No. 12', 'Perempuan', '089898', 'nandaenjella@gmail.com', 'Menikah', 'as ns', 'Confirm', '0000-00-00 00:00:00', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', '', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -88,24 +106,50 @@ CREATE TABLE `kegiatan` (
   `id_kegiatan` int(11) NOT NULL,
   `id_admin` int(10) NOT NULL,
   `nama_kegiatan` varchar(255) NOT NULL,
-  `waktu_kegiatan` datetime NOT NULL,
   `tempat_kegiatan` varchar(255) NOT NULL,
   `contact_person` varchar(255) NOT NULL,
   `pamflet` varchar(255) NOT NULL,
-  `status` enum('Confirm','Waiting') NOT NULL
+  `status` enum('Confirm','Waiting') NOT NULL,
+  `tanggal_kegiatan` date NOT NULL,
+  `jam_kegiatan` time NOT NULL,
+  `dipimpin` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id_kegiatan`, `id_admin`, `nama_kegiatan`, `waktu_kegiatan`, `tempat_kegiatan`, `contact_person`, `pamflet`, `status`) VALUES
-(1, 1, 'Paskah', '0000-00-00 00:00:00', 'Gedung Gereje GKJW Dinoyo', 'Enjella (098241577612)', 'paskah.jpg', 'Confirm'),
-(2, 2, 'vfdfd', '0000-00-00 00:00:00', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting'),
-(4, 2, 'vfdfd', '0000-00-00 00:00:00', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting'),
-(5, 2, 'vfdfd', '0000-00-00 00:00:00', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting'),
-(6, 2, 'vfdfd', '0000-00-00 00:00:00', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting'),
-(7, 2, 'vfdfd', '0000-00-00 00:00:00', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting');
+INSERT INTO `kegiatan` (`id_kegiatan`, `id_admin`, `nama_kegiatan`, `tempat_kegiatan`, `contact_person`, `pamflet`, `status`, `tanggal_kegiatan`, `jam_kegiatan`, `dipimpin`) VALUES
+(1, 1, 'Paskah', 'Gedung Gereje GKJW Dinoyo', 'Enjella (098241577612)', 'paskah.jpg', 'Confirm', '0000-00-00', '00:00:00', ''),
+(2, 2, 'vfdfd', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting', '0000-00-00', '00:00:00', ''),
+(4, 2, 'vfdfd', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting', '0000-00-00', '00:00:00', ''),
+(5, 2, 'vfdfd', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting', '0000-00-00', '00:00:00', ''),
+(6, 2, 'vfdfd', 'dsdvsv', 'Enjella Nanda', 'ssf', 'Waiting', '0000-00-00', '00:00:00', ''),
+(7, 2, 'vfdfdkkj', 'dsdvsv', 'Enjella Nanda', '', 'Waiting', '0000-00-00', '00:00:00', 'Yonatan'),
+(8, 2, 'PUT', 'Gereja', 'Enjella Nanda', '', 'Confirm', '2019-03-22', '07:00:00', 'Vita'),
+(9, 2, 'Natal', 'Gereja', 'Enjella Nanda', '5176_Warta_Jemaat_2018-11-1114.pdf', 'Confirm', '2019-12-25', '18:00:00', 'Yonatan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kotbah`
+--
+
+CREATE TABLE `kotbah` (
+  `id_kotbah` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  `tema` varchar(100) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `tanggal_kotbah` date NOT NULL,
+  `kotbah_mingguan` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kotbah`
+--
+
+INSERT INTO `kotbah` (`id_kotbah`, `id_admin`, `tema`, `judul`, `tanggal_kotbah`, `kotbah_mingguan`) VALUES
+(3, 2, 'Kasih', 'Mengasihi Sesama', '0000-00-00', 'Kejarlah kasih itu. —1 Korintus 14:1\r\nCinta tidak saja membuat “dunia ini berputar”, seperti kata sebuah lagu lama. Cinta juga bisa menjadikan kita sangat rentan. Mungkin adakalanya kita berkata pada diri sendiri: “Apa gunany');
 
 -- --------------------------------------------------------
 
@@ -117,7 +161,7 @@ CREATE TABLE `struktur_organisasi` (
   `id_struktur` int(11) NOT NULL,
   `id_admin` int(11) NOT NULL,
   `id_jemaat` int(11) NOT NULL,
-  `jabatan` enum('Ketua','Sekertaris','Bendahara','Majelis','Diaken','Pendeta') NOT NULL,
+  `jabatan` varchar(50) NOT NULL,
   `periode` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -146,8 +190,14 @@ CREATE TABLE `warta` (
 --
 
 INSERT INTO `warta` (`id_warta`, `id_admin`, `tanggal_terbit`, `wartajemaat`) VALUES
-(1, 1, '2019-01-06', 'warta0106.jpg'),
-(5, 2, '2019-01-05', 'fefd');
+(1, 2, '0000-00-00', 'warta0106.jpg'),
+(5, 2, '2019-01-05', 'fefd'),
+(6, 2, '2019-03-14', 'Kartu_Rencana_Studi_(KRS)_-_Politeknik_Negeri_Malang_enjella.pdf'),
+(7, 2, '0000-00-00', '5176_Warta_Jemaat_2018-11-11.pdf'),
+(9, 1, '0000-00-00', 'Kartu_Rencana_Studi_(KRS)_-_Politeknik_Negeri_Malang.pdf'),
+(12, 2, '2019-03-21', '5176_Warta_Jemaat_2018-11-117.pdf'),
+(15, 1, '0000-00-00', '5176_Warta_Jemaat_2018-11-1110.pdf'),
+(16, 2, '2019-03-01', '5176_Warta_Jemaat_2018-11-1111.pdf');
 
 --
 -- Indexes for dumped tables
@@ -172,6 +222,13 @@ ALTER TABLE `jemaat`
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`),
   ADD KEY `fk_admin` (`id_admin`);
+
+--
+-- Indexes for table `kotbah`
+--
+ALTER TABLE `kotbah`
+  ADD PRIMARY KEY (`id_kotbah`),
+  ADD UNIQUE KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `struktur_organisasi`
@@ -202,13 +259,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `jemaat`
 --
 ALTER TABLE `jemaat`
-  MODIFY `id_jemaat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_jemaat` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `kotbah`
+--
+ALTER TABLE `kotbah`
+  MODIFY `id_kotbah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `struktur_organisasi`
@@ -220,7 +283,7 @@ ALTER TABLE `struktur_organisasi`
 -- AUTO_INCREMENT for table `warta`
 --
 ALTER TABLE `warta`
-  MODIFY `id_warta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_warta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -237,6 +300,12 @@ ALTER TABLE `jemaat`
 --
 ALTER TABLE `kegiatan`
   ADD CONSTRAINT `fk_admin` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
+
+--
+-- Constraints for table `kotbah`
+--
+ALTER TABLE `kotbah`
+  ADD CONSTRAINT `kotbah_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
 
 --
 -- Constraints for table `struktur_organisasi`

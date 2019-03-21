@@ -6,56 +6,34 @@
             </div>
 			<?php echo form_open('jemaat/edit/'.$jemaat['id_jemaat']); ?>
 			<div class="box-body">
+				<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="nama_jemaat" class="control-label"><span class="text-danger">*</span>Nama Jemaat</label>
+						<label for="nama_jemaat" class="control-label">Nama Jemaat</label>
 						<div class="form-group">
 							<input type="text" name="nama_jemaat" value="<?php echo ($this->input->post('nama_jemaat') ? $this->input->post('nama_jemaat') : $jemaat['nama_jemaat']); ?>" class="form-control" id="nama_jemaat" />
-							<span class="text-danger"><?php echo form_error('nama_jemaat');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="username" class="control-label"><span class="text-danger">*</span>Username</label>
+						<label for="username" class="control-label">Username</label>
 						<div class="form-group">
 							<input type="text" name="username" value="<?php echo ($this->input->post('username') ? $this->input->post('username') : $jemaat['username']); ?>" class="form-control" id="username" />
-							<span class="text-danger"><?php echo form_error('username');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="password" class="control-label"><span class="text-danger">*</span>Password</label>
+						<label for="password" class="control-label">Password</label>
 						<div class="form-group">
 							<input type="text" name="password" value="<?php echo ($this->input->post('password') ? $this->input->post('password') : $jemaat['password']); ?>" class="form-control" id="password" />
-							<span class="text-danger"><?php echo form_error('password');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="tanggal_lahir" class="control-label"><span class="text-danger">*</span>Tanggal Lahir</label>
-						<div class="form-group">
-							<input type="text" name="tanggal_lahir" value="<?php echo ($this->input->post('tanggal_lahir') ? $this->input->post('tanggal_lahir') : $jemaat['tanggal_lahir']); ?>" class="has-datepicker form-control" id="tanggal_lahir" />
-							<span class="text-danger"><?php echo form_error('tanggal_lahir');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="alamat" class="control-label"><span class="text-danger">*</span>Alamat</label>
-						<div class="form-group">
-							<input type="text" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $jemaat['alamat']); ?>" class="form-control" id="alamat" />
-							<span class="text-danger"><?php echo form_error('alamat');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="gereja_asal" class="control-label">Gereja Asal</label>
-						<div class="form-group">
-							<input type="text" name="gereja_asal" value="<?php echo ($this->input->post('gereja_asal') ? $this->input->post('gereja_asal') : $jemaat['gereja_asal']); ?>" class="form-control" id="gereja_asal" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="jenis_kelamin" class="control-label"><span class="text-danger">*</span>Jenis Kelamin</label>
+						<label for="jenis_kelamin" class="control-label">Jenis Kelamin</label>
 						<div class="form-group">
 							<select name="jenis_kelamin" class="form-control">
 								<option value="">select</option>
 								<?php 
 								$jenis_kelamin_values = array(
 									'Perempuan'=>'Perempuan',
-									'Laki - Laki'=>'Laki - Laki',
+									'Laki-Laki'=>'Laki-Laki',
 								);
 
 								foreach($jenis_kelamin_values as $value => $display_text)
@@ -66,46 +44,65 @@
 								} 
 								?>
 							</select>
-							<span class="text-danger"><?php echo form_error('jenis_kelamin');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="umur" class="control-label"><span class="text-danger">*</span>Umur</label>
+						<label for="tempat_lahir" class="control-label">Tempat Lahir</label>
 						<div class="form-group">
-							<input type="text" name="umur" value="<?php echo ($this->input->post('umur') ? $this->input->post('umur') : $jemaat['umur']); ?>" class="form-control" id="umur" />
-							<span class="text-danger"><?php echo form_error('umur');?></span>
-						</div>
-					</div> 
-					<div class="col-md-6">
-						<label for="pekerjaan" class="control-label"><span class="text-danger">*</span>Pekerjaan</label>
-						<div class="form-group">
-							<input type="text" name="pekerjaan" value="<?php echo ($this->input->post('pekerjaan') ? $this->input->post('pekerjaan') : $jemaat['pekerjaan']); ?>" class="form-control" id="pekerjaan" />
-							<span class="text-danger"><?php echo form_error('pekerjaan');?></span>
+							<input type="text" name="tempat_lahir" value="<?php echo ($this->input->post('tempat_lahir') ? $this->input->post('tempat_lahir') : $jemaat['tempat_lahir']); ?>" class="form-control" id="tempat_lahir" />
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nomer_telfon" class="control-label"><span class="text-danger">*</span>Nomer Telfon</label>
+						<label for="tanggal_lahir" class="control-label">Tanggal Lahir</label>
 						<div class="form-group">
-							<input type="text" name="nomer_telfon" value="<?php echo ($this->input->post('nomer_telfon') ? $this->input->post('nomer_telfon') : $jemaat['nomer_telfon']); ?>" class="form-control" id="nomer_telfon" />
-							<span class="text-danger"><?php echo form_error('nomer_telfon');?></span>
+							<input type="text" name="tanggal_lahir" value="<?php echo ($this->input->post('tanggal_lahir') ? $this->input->post('tanggal_lahir') : $jemaat['tanggal_lahir']); ?>" class="has-datepicker form-control" id="tanggal_lahir" />
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="email" class="control-label">Email</label>
+						<label for="nama_ayah" class="control-label">Nama Ayah</label>
 						<div class="form-group">
-							<input type="text" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $jemaat['email']); ?>" class="form-control" id="email" />
-							<span class="text-danger"><?php echo form_error('email');?></span>
+							<input type="text" name="nama_ayah" value="<?php echo ($this->input->post('nama_ayah') ? $this->input->post('nama_ayah') : $jemaat['nama_ayah']); ?>" class="form-control" id="nama_ayah" />
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="status" class="control-label"><span class="text-danger">*</span>Status</label>
+						<label for="nama_ibu" class="control-label">Nama Ibu</label>
+						<div class="form-group">
+							<input type="text" name="nama_ibu" value="<?php echo ($this->input->post('nama_ibu') ? $this->input->post('nama_ibu') : $jemaat['nama_ibu']); ?>" class="form-control" id="nama_ibu" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="gereja_baptis" class="control-label">Gereja Baptis</label>
+						<div class="form-group">
+							<input type="text" name="gereja_baptis" value="<?php echo ($this->input->post('gereja_baptis') ? $this->input->post('gereja_baptis') : $jemaat['gereja_baptis']); ?>" class="form-control" id="gereja_baptis" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal baptis" class="control-label">Tanggal Baptis</label>
+						<div class="form-group">
+							<input type="text" name="tanggal baptis" value="<?php echo ($this->input->post('tanggal baptis') ? $this->input->post('tanggal baptis') : $jemaat['tanggal baptis']); ?>" class="has-datepicker form-control" id="tanggal baptis" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="gereja_sidi" class="control-label">Gereja Sidi</label>
+						<div class="form-group">
+							<input type="text" name="gereja_sidi" value="<?php echo ($this->input->post('gereja_sidi') ? $this->input->post('gereja_sidi') : $jemaat['gereja_sidi']); ?>" class="form-control" id="gereja_sidi" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_sidi" class="control-label">Tanggal Sidi</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_sidi" value="<?php echo ($this->input->post('tanggal_sidi') ? $this->input->post('tanggal_sidi') : $jemaat['tanggal_sidi']); ?>" class="has-datepicker form-control" id="tanggal_sidi" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="status" class="control-label">Status</label>
 						<div class="form-group">
 							<select name="status" class="form-control">
 								<option value="">select</option>
 								<?php 
 								$status_values = array(
-									'Belum Menikah'=>'Belum Menikah',
 									'Menikah'=>'Menikah',
+									'Belum Menikah'=>'Belum Menikah'
 								);
 
 								foreach($status_values as $value => $display_text)
@@ -116,21 +113,114 @@
 								} 
 								?>
 							</select>
-							<span class="text-danger"><?php echo form_error('status');?></span>
-						</div>
-					</div> 
-					<div class="col-md-6">
-						<label for="ktp_sim" class="control-label"><span class="text-danger">*</span>Ktp Sim</label>
-						<div class="form-group">
-							<input type="text" name="ktp_sim" value="<?php echo ($this->input->post('ktp_sim') ? $this->input->post('ktp_sim') : $jemaat['ktp_sim']); ?>" class="form-control" id="ktp_sim" />
-							<span class="text-danger"><?php echo form_error('ktp_sim');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="kk" class="control-label"><span class="text-danger">*</span>Kk</label>
+						<label for="nama_pasangan" class="control-label">Nama Pasangan</label>
 						<div class="form-group">
-							<input type="text" name="kk" value="<?php echo ($this->input->post('kk') ? $this->input->post('kk') : $jemaat['kk']); ?>" class="form-control" id="kk" />
-							<span class="text-danger"><?php echo form_error('kk');?></span>
+							<input type="text" name="nama_pasangan" value="<?php echo ($this->input->post('nama_pasangan') ? $this->input->post('nama_pasangan') : $jemaat['nama_pasangan']); ?>" class="form-control" id="nama_pasangan" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="gereja_pasangan" class="control-label">Gereja Pasangan</label>
+						<div class="form-group">
+							<input type="text" name="gereja_pasangan" value="<?php echo ($this->input->post('gereja_pasangan') ? $this->input->post('gereja_pasangan') : $jemaat['gereja_pasangan']); ?>" class="form-control" id="gereja_pasangan" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="nomor induk_perkawinan" class="control-label">Nomor Induk Perkawinan</label>
+						<div class="form-group">
+							<input type="text" name="nomor induk_perkawinan" value="<?php echo ($this->input->post('nomor induk_perkawinan') ? $this->input->post('nomor induk_perkawinan') : $jemaat['nomor induk_perkawinan']); ?>" class="form-control" id="nomor induk_perkawinan" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tempat_catatan_sipil" class="control-label">Tempat Catatan Sipil</label>
+						<div class="form-group">
+							<input type="text" name="tempat_catatan_sipil" value="<?php echo ($this->input->post('tempat_catatan_sipil') ? $this->input->post('tempat_catatan_sipil') : $jemaat['tempat_catatan_sipil']); ?>" class="form-control" id="tempat_catatan_sipil" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_catatan_sipil" class="control-label">Tanggal Catatan Sipil</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_catatan_sipil" value="<?php echo ($this->input->post('tanggal_catatan_sipil') ? $this->input->post('tanggal_catatan_sipil') : $jemaat['tanggal_catatan_sipil']); ?>" class="has-datepicker form-control" id="tanggal_catatan_sipil" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="gereja_pemberkatan" class="control-label">Gereja Pemberkatan</label>
+						<div class="form-group">
+							<input type="text" name="gereja_pemberkatan" value="<?php echo ($this->input->post('gereja_pemberkatan') ? $this->input->post('gereja_pemberkatan') : $jemaat['gereja_pemberkatan']); ?>" class="form-control" id="gereja_pemberkatan" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_pemberkatan" class="control-label">Tanggal Pemberkatan</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_pemberkatan" value="<?php echo ($this->input->post('tanggal_pemberkatan') ? $this->input->post('tanggal_pemberkatan') : $jemaat['tanggal_pemberkatan']); ?>" class="has-datepicker form-control" id="tanggal_pemberkatan" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_cerai" class="control-label">Tanggal Cerai</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_cerai" value="<?php echo ($this->input->post('tanggal_cerai') ? $this->input->post('tanggal_cerai') : $jemaat['tanggal_cerai']); ?>" class="has-datepicker form-control" id="tanggal_cerai" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="alasan_cerai" class="control-label">Alasan Cerai</label>
+						<div class="form-group">
+							<textarea name="alasan_cerai" class="form-control" id="alasan_cerai"><?php echo ($this->input->post('alasan_cerai') ? $this->input->post('alasan_cerai') : $jemaat['alasan_cerai']); ?></textarea>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="pindah_gereja" class="control-label">Pindah Gereja</label>
+						<div class="form-group">
+							<input type="text" name="pindah_gereja" value="<?php echo ($this->input->post('pindah_gereja') ? $this->input->post('pindah_gereja') : $jemaat['pindah_gereja']); ?>" class="form-control" id="pindah_gereja" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_pindah_gereja" class="control-label">Tanggal Pindah Gereja</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_pindah_gereja" value="<?php echo ($this->input->post('tanggal_pindah_gereja') ? $this->input->post('tanggal_pindah_gereja') : $jemaat['tanggal_pindah_gereja']); ?>" class="has-datepicker form-control" id="tanggal_pindah_gereja" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="nomor_surat_pindah" class="control-label">Nomor Surat Pindah</label>
+						<div class="form-group">
+							<input type="text" name="nomor_surat_pindah" value="<?php echo ($this->input->post('nomor_surat_pindah') ? $this->input->post('nomor_surat_pindah') : $jemaat['nomor_surat_pindah']); ?>" class="form-control" id="nomor_surat_pindah" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_keluar" class="control-label">Tanggal Keluar</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_keluar" value="<?php echo ($this->input->post('tanggal_keluar') ? $this->input->post('tanggal_keluar') : $jemaat['tanggal_keluar']); ?>" class="has-datepicker form-control" id="tanggal_keluar" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="keterangan" class="control-label">Keterangan</label>
+						<div class="form-group">
+							<textarea name="keterangan" class="form-control" id="keterangan"><?php echo ($this->input->post('keterangan') ? $this->input->post('keterangan') : $jemaat['keterangan']); ?></textarea>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="alamat" class="control-label">Alamat</label>
+						<div class="form-group">
+							<input type="text" name="alamat" value="<?php echo ($this->input->post('alamat') ? $this->input->post('alamat') : $jemaat['alamat']); ?>" class="form-control" id="alamat" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="nomer_telfon" class="control-label">Nomer Telfon</label>
+						<div class="form-group">
+							<input type="text" name="nomer_telfon" value="<?php echo ($this->input->post('nomer_telfon') ? $this->input->post('nomer_telfon') : $jemaat['nomer_telfon']); ?>" class="form-control" id="nomer_telfon" />
+						</div>
+					</div>
+						<div class="col-md-6">
+						<label for="email" class="control-label">Email</label>
+						<div class="form-group">
+							<input type="text" name="email" value="<?php echo ($this->input->post('email') ? $this->input->post('email') : $jemaat['email']); ?>" class="form-control" id="email" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="surat_keterangan" class="control-label">Surat Keterangan</label>
+						<div class="form-group">
+							<input type="text" name="surat_keterangan" value="<?php echo ($this->input->post('surat_keterangan') ? $this->input->post('surat_keterangan') : $jemaat['surat_keterangan']); ?>" class="form-control" id="surat_keterangan" />
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -140,14 +230,14 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="status_jemaat" class="control-label"><span class="text-danger">*</span>Status Jemaat</label>
+						<label for="status_jemaat" class="control-label">Status Jemaat</label>
 						<div class="form-group">
 							<select name="status_jemaat" class="form-control">
 								<option value="">select</option>
 								<?php 
 								$status_jemaat_values = array(
+									'Confirm'=>'Confirm',
 									'Waiting'=>'Waiting',
-									'Confirm'=>'Confirm'
 								);
 
 								foreach($status_jemaat_values as $value => $display_text)
@@ -158,12 +248,11 @@
 								} 
 								?>
 							</select>
-							<span class="text-danger"><?php echo form_error('status_jemaat');?></span>
 						</div>
 					</div>
-					<div class="row clearfix">
+
 					<div class="col-md-6">
-						<label for="id_admin" class="control-label"><span class="text-danger">*</span>Admin</label>
+						<label for="id_admin" class="control-label">Admin</label>
 						<div class="form-group">
 							<select name="id_admin" class="form-control">
 								<option value="">select admin</option>
@@ -172,14 +261,13 @@
 								{
 									$selected = ($admin['id_admin'] == $jemaat['id_admin']) ? ' selected="selected"' : "";
 
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
+									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['id_admin'].'</option>';
 								} 
 								?>
 							</select>
-							<span class="text-danger"><?php echo form_error('id_admin');?></span>
 						</div>
 					</div>
-					
+				
 				</div>
 			</div>
 			<div class="box-footer">

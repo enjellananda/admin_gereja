@@ -120,7 +120,7 @@
                         </li>
                         <li>
                             <li>
-                                <a href="<?php echo site_url('warta/index');?>"><i class="fa fa-book"></i><span> Kotbah </span></a>
+                                <a href="<?php echo site_url('kotbah/index');?>"><i class="fa fa-book"></i><span> Kotbah </span></a>
                             </li>
                         </li>
                     </ul>

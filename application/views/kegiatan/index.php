@@ -18,9 +18,11 @@
                         <th>Status</th>
                         <th>Nama Kegiatan</th>
                         <th>Waktu Kegiatan</th>
+                        <th>Tanggal Kegiatan</th>
                         <th>Tempat Kegiatan</th>
                         <th>Contact Person</th>
                         <th>Pamflet</th>
+                        <th>Dipimpin</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -31,10 +33,12 @@
                         <td><?php echo $k['id_admin']; ?></td>
                         <td><?php echo $k['status']; ?></td>
                         <td><?php echo $k['nama_kegiatan']; ?></td>
-                        <td><?php echo $k['waktu_kegiatan']; ?></td>
+                        <td><?php $tgl = $k['tanggal_kegiatan']; echo date("d F Y", strtotime($tgl)); ?></td>
+                        <td><?php $wkt = $k['jam_kegiatan']; echo date("H:i", strtotime($wkt)); ?></td>
                         <td><?php echo $k['tempat_kegiatan']; ?></td>
                         <td><?php echo $k['contact_person']; ?></td>
                         <td><?php echo $k['pamflet']; ?></td>
+                        <td><?php echo $k['dipimpin']; ?></td>
                         <td>
                             <a href="<?php echo site_url('kegiatan/edit/'.$k['id_kegiatan']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('kegiatan/remove/'.$k['id_kegiatan']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>

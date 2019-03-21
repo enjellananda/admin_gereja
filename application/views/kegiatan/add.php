@@ -53,10 +53,17 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="waktu_kegiatan" class="control-label"><span class="text-danger">*</span>Waktu Kegiatan</label>
+						<label for="jam_kegiatan" class="control-label"><span class="text-danger">*</span>Jam Kegiatan</label>
 						<div class="form-group">
-							<input type="text" name="waktu_kegiatan" value="<?php echo $this->input->post('waktu_kegiatan'); ?>" class="has-datetimepicker form-control" id="waktu_kegiatan" />
-							<span class="text-danger"><?php echo form_error('waktu_kegiatan');?></span>
+							<input type="time" name="jam_kegiatan" class="form-control" id="jam_kegiatan" />
+							<span class="text-danger"><?php echo form_error('jam_kegiatan');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_kegiatan" class="control-label"><span class="text-danger">*</span>Tanggal Kegiatan</label>
+						<div class="form-group">
+							<input type="date" name="tanggal_kegiatan" class="form-control" id="waktu_kegiatan" />
+							<span class="text-danger"><?php echo form_error('tanggal_kegiatan'); ?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -79,6 +86,13 @@
 							<input type="file" name="pamflet" class="form-control" required="required">
 							<!-- <input type="text" name="pamflet" value="<?php echo $this->input->post('pamflet'); ?>" class="form-control" id="pamflet" /> -->
 							<span class="text-danger"><?php echo form_error('pamflet');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="dipimpin" class="control-label"><span class="text-danger">*</span>Dipimpin oleh</label>
+						<div class="form-group">
+							<input type="text" name="dipimpin" class="form-control" id="dipimpin" />
+							<span class="text-danger"><?php echo form_error('dipimpin');?></span>
 						</div>
 					</div>
 				</div>

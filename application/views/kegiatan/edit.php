@@ -4,7 +4,7 @@
             <div class="box-header with-border">
               	<h3 class="box-title">Kegiatan Edit</h3>
             </div>
-			<?php echo form_open('kegiatan/edit/'.$kegiatan['id_kegiatan']); ?>
+			<?php echo form_open_multipart('kegiatan/edit/'.$kegiatan['id_kegiatan']); ?>
 			<div class="box-body">
 				<div class="row clearfix">
 					<div class="col-md-6">
@@ -55,8 +55,15 @@
 					<div class="col-md-6">
 						<label for="waktu_kegiatan" class="control-label"><span class="text-danger">*</span>Waktu Kegiatan</label>
 						<div class="form-group">
-							<input type="text" name="waktu_kegiatan" value="<?php echo ($this->input->post('waktu_kegiatan') ? $this->input->post('waktu_kegiatan') : $kegiatan['waktu_kegiatan']); ?>" class="has-datetimepicker form-control" id="waktu_kegiatan" />
-							<span class="text-danger"><?php echo form_error('waktu_kegiatan');?></span>
+							<input type="time" name="jam_kegiatan" value="<?php echo ($this->input->post('jam_kegiatan') ? $this->input->post('jam_kegiatan') : $kegiatan['jam_kegiatan']); ?>" class="form-control" id="jam_kegiatan" />
+							<span class="text-danger"><?php echo form_error('jam_kegiatan');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_kegiatan" class="control-label"><span class="text-danger">*</span>Tanggal Kegiatan</label>
+						<div class="form-group">
+							<input type="date" name="tanggal_kegiatan" value="<?php echo ($this->input->post('tanggal_kegiatan') ? $this->input->post('tanggal_kegiatan') : $kegiatan['tanggal_kegiatan']); ?>" class="form-control" id="tanggal_kegiatan" />
+							<span class="text-danger"><?php echo form_error('tanggal_kegiatan');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -76,8 +83,15 @@
 					<div class="col-md-6">
 						<label for="pamflet" class="control-label"><span class="text-danger">*</span>Pamflet</label>
 						<div class="form-group">
-							<input type="text" name="pamflet" value="<?php echo ($this->input->post('pamflet') ? $this->input->post('pamflet') : $kegiatan['pamflet']); ?>" class="form-control" id="pamflet" />
+							<input type="file" name="pamflet" class="form-control" required="required">
 							<span class="text-danger"><?php echo form_error('pamflet');?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="dipimpin" class="control-label"><span class="text-danger">*</span>Dipimpin</label>
+						<div class="form-group">
+							<input type="text" name="dipimpin" value="<?php echo ($this->input->post('dipimpin') ? $this->input->post('dipimpin') : $kegiatan['dipimpin']); ?>" class="form-control" id="dipimpin" />
+							<span class="text-danger"><?php echo form_error('dipimpin');?></span>
 						</div>
 					</div>
 				</div>

@@ -26,7 +26,7 @@
 					<div class="col-md-6">
 						<label for="tanggal_terbit" class="control-label"><span class="text-danger">*</span>Tanggal Terbit</label>
 						<div class="form-group">
-							<input type="text" name="tanggal_terbit" value="<?php echo $this->input->post('tanggal_terbit'); ?>" class="has-datepicker form-control" id="tanggal_terbit" />
+							<input type="date" name="tanggal_terbit" class="form-control" id="tanggal_terbit" />
 							<span class="text-danger"><?php echo form_error('tanggal_terbit');?></span>
 						</div>
 					</div>
