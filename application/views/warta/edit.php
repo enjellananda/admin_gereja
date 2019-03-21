@@ -4,7 +4,7 @@
             <div class="box-header with-border">
               	<h3 class="box-title">Warta Edit</h3>
             </div>
-			<?php echo form_open('warta/edit/'.$warta['id_warta']); ?>
+			<?php echo form_open_multipart('warta/edit/'.$warta['id_warta']); ?>
 			<div class="box-body">
 				<div class="row clearfix">
 					<div class="col-md-6">
@@ -33,7 +33,8 @@
 					<div class="col-md-6">
 						<label for="wartajemaat" class="control-label"><span class="text-danger">*</span>Wartajemaat</label>
 						<div class="form-group">
-							<input type="text" name="wartajemaat" value="<?php echo ($this->input->post('wartajemaat') ? $this->input->post('wartajemaat') : $warta['wartajemaat']); ?>" class="form-control" id="wartajemaat" />
+							<input type="file" name="wartajemaat" class="form-control" required="required">
+							<!-- <input type="text" name="wartajemaat" value="<?php echo ($this->input->post('wartajemaat') ? $this->input->post('wartajemaat') : $warta['wartajemaat']); ?>" class="form-control" id="wartajemaat" /> -->
 							<span class="text-danger"><?php echo form_error('wartajemaat');?></span>
 						</div>
 					</div>

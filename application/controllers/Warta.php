@@ -94,20 +94,35 @@ class Warta extends CI_Controller{
         {
             $this->load->library('form_validation');
 
-			$this->form_validation->set_rules('wartajemaat','Wartajemaat','required');
+			// $this->form_validation->set_rules('wartajemaat','Wartajemaat','required');
 			$this->form_validation->set_rules('tanggal_terbit','Tanggal Terbit','required');
 		
 			if($this->form_validation->run())     
             {   
+                $config['upload_path'] = './upload/';
+                $config['allowed_types'] = 'pdf';
+                $config['max_size'] = 2048;
+
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('wartajemaat')) {
+                    $error = $this->upload->display_errors();
+                    echo $error;
+                } else {
+                    $image = $this->upload->data();
+                    $uploadDir = './upload/';
+                    $uploadFile = $uploadDir . basename($image['file_name']);
+
                 $params = array(
 					'id_admin' => $this->input->post('id_admin'),
 					'tanggal_terbit' => $this->input->post('tanggal_terbit'),
-					'wartajemaat' => $this->input->post('wartajemaat'),
+					'wartajemaat' => $this->input->post('file_name'),
                 );
 
                 $this->Warta_model->update_warta($id_warta,$params);            
                 redirect('warta/index');
             }
+        }
             else
             {
 				$this->load->model('Admin_model');
