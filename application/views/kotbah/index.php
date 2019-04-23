@@ -13,8 +13,6 @@
                 <table id="myTable" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-						<th>Id Kotbah</th>
-                        <th>Id Admin</th>
                         <th>Tema</th>
                         <th>Judul</th>
                         <th>Tanggal Kotbah</th>
@@ -25,15 +23,13 @@
                 <tbody>
                     <?php foreach($kotbah as $k){ ?>
                     <tr>
-						<td><?php echo $k['id_kotbah']; ?></td>
-                        <td><?php echo $k['id_admin']; ?></td>
                         <td><?php echo $k['tema']; ?></td>
                         <td><?php echo $k['judul']; ?></td>
-                        <td><?php echo $k['tanggal_kotbah']; ?></td>
+                        <td><?php $tgl = $k['tanggal_kotbah']; echo date("d F Y", strtotime($tgl)); ?></td>
                         <td><?php echo $k['kotbah_mingguan']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('kotbah/edit/'.$k['id_admin']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
-                            <a href="<?php echo site_url('kotbah/remove/'.$k['id_admin']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                            <a href="<?php echo site_url('kotbah/edit/'.$k['id_kotbah']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
+                            <a href="<?php echo site_url('kotbah/remove/'.$k['id_kotbah']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
                     <?php } ?>

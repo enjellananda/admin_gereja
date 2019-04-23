@@ -8,22 +8,6 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="id_admin" class="control-label">Admin</label>
-						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $this->input->post('id_admin')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
-								} 
-								?>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
 						<label for="tanggal_terbit" class="control-label"><span class="text-danger">*</span>Tanggal Terbit</label>
 						<div class="form-group">
 							<input type="date" name="tanggal_terbit" class="form-control" id="tanggal_terbit" />

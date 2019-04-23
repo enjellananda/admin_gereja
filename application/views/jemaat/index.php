@@ -47,7 +47,6 @@
 						<th>Surat Keterangan</th>
 						<th>Pengingat</th>
 						<th>Status Jemaat</th>
-						<th>Id Admin</th>
 						<th>Actions</th>
                     </tr>
                 	</thead>
@@ -60,35 +59,39 @@
 						<td><?php echo $j['password']; ?></td>
 						<td><?php echo $j['jenis_kelamin']; ?></td>
 						<td><?php echo $j['tempat_lahir']; ?></td>
-						<td><?php echo $j['tanggal_lahir']; ?></td>
+						<td><?php $tgl = $j['tanggal_lahir']; echo date("d F Y", strtotime($tgl)); ?></td>
 						<td><?php echo $j['nama_ayah']; ?></td>
 						<td><?php echo $j['nama_ibu']; ?></td>
 						<td><?php echo $j['gereja_baptis']; ?></td>
-						<td><?php echo $j['tanggal baptis']; ?></td>
+						<td><?php $tgl = $j['tanggal_baptis']; echo date("d F Y", strtotime($tgl)); ?></td>
+						
 						<td><?php echo $j['gereja_sidi']; ?></td>
-						<td><?php echo $j['tanggal_sidi']; ?></td>
+						<td><?php $tgl = $j['tanggal_sidi']; echo date("d F Y", strtotime($tgl)); ?></td>
+						
 						<td><?php echo $j['status']; ?></td>
 						<td><?php echo $j['nama_pasangan']; ?></td>
 						<td><?php echo $j['gereja_pasangan']; ?></td>
-						<td><?php echo $j['nomor induk_perkawinan']; ?></td>
+						<td><?php echo $j['nomor_induk_perkawinan']; ?></td>
 						<td><?php echo $j['tempat_catatan_sipil']; ?></td>
 						<td><?php echo $j['tanggal_catatan_sipil']; ?></td>
 						<td><?php echo $j['gereja_pemberkatan']; ?></td>
-						<td><?php echo $j['tanggal_pemberkatan']; ?></td>
+						<td><?php $tgl = $j['tanggal_pemberkatan']; echo date("d F Y", strtotime($tgl)); ?></td>
+						
 						<td><?php echo $j['tanggal_cerai']; ?></td>
 						<td><?php echo $j['alasan_cerai']; ?></td>
 						<td><?php echo $j['pindah_gereja']; ?></td>
-						<td><?php echo $j['tanggal_pindah_gereja']; ?></td>
+						<td><?php $tgl = $j['tanggal_pindah_gereja']; echo date("d F Y", strtotime($tgl)); ?></td>
+						
 						<td><?php echo $j['nomor_surat_pindah']; ?></td>
-						<td><?php echo $j['tanggal_keluar']; ?></td>
+						<td><?php $tgl = $j['tanggal_keluar']; echo date("d F Y", strtotime($tgl)); ?></td>
+						
 						<td><?php echo $j['keterangan']; ?></td>
 						<td><?php echo $j['alamat']; ?></td>
 						<td><?php echo $j['nomer_telfon']; ?></td>
 						<td><?php echo $j['email']; ?></td>
 						<td><?php echo $j['surat_keterangan']; ?></td>
 						<td><?php echo $j['pengingat']; ?></td>
-						<td><?php echo $j['status_jemaat']; ?></td>		
-						<td><?php echo $j['id_admin']; ?></td>
+						<td><?php echo $j['status_jemaat']; ?></td>	
 						<td>
                             <a href="<?php echo site_url('jemaat/edit/'.$j['id_jemaat']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('jemaat/remove/'.$j['id_jemaat']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>

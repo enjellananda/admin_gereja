@@ -4,25 +4,8 @@
             <div class="box-header with-border">
               	<h3 class="box-title">Struktur Organisasi Edit</h3>
             </div>
-			<?php echo form_open('struktur_organisasi/edit/'.$struktur_organisasi['id_struktur']); ?>
+			<?php echo form_open_multipart('struktur_organisasi/edit/'.$struktur_organisasi['id_struktur']); ?>
 			<div class="box-body">
-				<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="id_admin" class="control-label">Admin</label>
-						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $struktur_organisasi['id_admin']) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
-								} 
-								?>
-							</select>
-						</div>
-					</div>
 					<div class="col-md-6">
 						<label for="id_jemaat" class="control-label">Jemaat</label>
 						<div class="form-group">
@@ -42,21 +25,8 @@
 					<div class="col-md-6">
 						<label for="jabatan" class="control-label"><span class="text-danger">*</span>Jabatan</label>
 						<div class="form-group">
-							<select name="jabatan" class="form-control">
-								<option value="">select</option>
-								<?php 
-								$jabatan_values = array(
-								);
-
-								foreach($jabatan_values as $value => $display_text)
-								{
-									$selected = ($value == $struktur_organisasi['jabatan']) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('jabatan');?></span>
+							<input type="text" name="jabatan" value="<?php echo ($this->input->post('jabatan') ? $this->input->post('jabatan') : $struktur_organisasi['jabatan']); ?>" class="form-control" id="jabatan" />
+							<span class="text-danger"><?php echo form_error('periode');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">

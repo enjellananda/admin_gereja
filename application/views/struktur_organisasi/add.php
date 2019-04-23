@@ -7,23 +7,7 @@
             <?php echo form_open_multipart('struktur_organisasi/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="id_admin" class="control-label"><span class="text-danger">*</span>Admin</label>
-						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $this->input->post('id_admin')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('id_admin');?></span>
-						</div>
-					</div>
+					
 					<div class="col-md-6">
 						<label for="id_jemaat" class="control-label"><span class="text-danger">*</span>Jemaat</label>
 						<div class="form-group">
@@ -44,25 +28,7 @@
 					<div class="col-md-6">
 						<label for="jabatan" class="control-label"><span class="text-danger">*</span>Jabatan</label>
 						<div class="form-group">
-							<select name="jabatan" class="form-control">
-								<option value="">select</option>
-								<?php 
-								$jabatan_values = array(
-									'Sekertaris'=>'Sekertaris',
-									'Bendahara'=>'Bendahara',
-									'Majelis'=>'Majelis',
-									'Diaken'=>'Diaken',
-									'Pendeta'=>'Pendeta',
-								);
-
-								foreach($jabatan_values as $value => $display_text)
-								{
-									$selected = ($value == $this->input->post('jabatan')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
+							<input type="text" name="jabatan" value="<?php echo $this->input->post('jabatan'); ?>" class="form-control" id="jabatan" />
 							<span class="text-danger"><?php echo form_error('jabatan');?></span>
 						</div>
 					</div>

@@ -13,8 +13,6 @@
                 <table id="myTable" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-						<th>Id Warta</th>
-						<th>Id Admin</th>
 						<th>Tanggal Terbit</th>
 						<th>Wartajemaat</th>
 						<th>Actions</th>
@@ -23,8 +21,6 @@
                     <tbody>
                     <?php foreach($warta as $w){ ?>
                     <tr>
-						<td><?php echo $w['id_warta']; ?></td>
-						<td><?php echo $w['id_admin']; ?></td>
 						<td><?php $tgl = $w['tanggal_terbit']; echo date("d F Y", strtotime($tgl)); ?></td>
 						<td><?php echo $w['wartajemaat']; ?></td>
 						<td>

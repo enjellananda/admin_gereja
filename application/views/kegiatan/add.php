@@ -8,22 +8,6 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="id_admin" class="control-label">Admin</label>
-						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $this->input->post('id_admin')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['username'].'</option>';
-								} 
-								?>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
 						<label for="status" class="control-label"><span class="text-danger">*</span>Status</label>
 						<div class="form-group">
 							<select name="status" class="form-control">
@@ -84,7 +68,7 @@
 						<label for="pamflet" class="control-label"><span class="text-danger">*</span>Pamflet</label>
 						<div class="form-group">
 							<input type="file" name="pamflet" class="form-control" required="required">
-							<!-- <input type="text" name="pamflet" value="<?php echo $this->input->post('pamflet'); ?>" class="form-control" id="pamflet" /> -->
+							
 							<span class="text-danger"><?php echo form_error('pamflet');?></span>
 						</div>
 					</div>

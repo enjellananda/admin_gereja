@@ -7,30 +7,39 @@
             <?php echo form_open('jemaat/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="id_admin" class="control-label">Admin</label>
+          			<div class="col-md-6">
+						<label for="nomor_induk" class="control-label">Nomor Induk </label>
 						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $this->input->post('id_admin')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['id_admin'].'</option>';
-								} 
-								?>
-							</select>
+							<input type="text" name="nomor_induk" value="<?php echo $this->input->post('nomor_induk'); ?>" class="form-control" id="nomor_induk" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="nama_jemaat" class="control-label">Nama Jemaat</label>
+						<div class="form-group">
+							<input type="text" name="nama_jemaat" value="<?php echo $this->input->post('nama_jemaat'); ?>" class="form-control" id="nama_jemaat" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="username" class="control-label">Username</label>
+						<div class="form-group">
+							<input type="text" name="username" value="<?php echo $this->input->post('username'); ?>" class="form-control" id="username" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="password" class="control-label">Password</label>
+						<div class="form-group">
+							<input type="password" name="password" value="<?php echo $this->input->post('password'); ?>" class="form-control" id="password" />
 						</div>
 					</div>
 					<div class="col-md-6">
 						<label for="jenis_kelamin" class="control-label">Jenis Kelamin</label>
 						<div class="form-group">
 							<select name="jenis_kelamin" class="form-control">
-								<option value="">select</option>
+								<option value="">select jenis kelamin</option>
 								<?php 
 								$jenis_kelamin_values = array(
 									'Perempuan'=>'Perempuan',
+									'Laki-Laki'=>'Laki-Laki',
 								);
 
 								foreach($jenis_kelamin_values as $value => $display_text)
@@ -44,6 +53,54 @@
 						</div>
 					</div>
 					<div class="col-md-6">
+						<label for="tempat_lahir" class="control-label">Tempat Lahir</label>
+						<div class="form-group">
+							<input type="text" name="tempat_lahir" value="<?php echo $this->input->post('tempat_lahir'); ?>" class="form-control" id="tempat_lahir" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_lahir" class="control-label">Tanggal Lahir</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_lahir" value="<?php echo $this->input->post('tanggal_lahir'); ?>" class="has-datepicker form-control" id="tanggal_lahir" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="nama_ayah" class="control-label">Nama Ayah</label>
+						<div class="form-group">
+							<input type="text" name="nama_ayah" value="<?php echo $this->input->post('nama_ayah'); ?>" class="form-control" id="nama_ayah" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="nama_ibu" class="control-label">Nama Ibu</label>
+						<div class="form-group">
+							<input type="text" name="nama_ibu" value="<?php echo $this->input->post('nama_ibu'); ?>" class="form-control" id="nama_ibu" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="gereja_baptis" class="control-label">Gereja Baptis</label>
+						<div class="form-group">
+							<input type="text" name="gereja_baptis" value="<?php echo $this->input->post('gereja_baptis'); ?>" class="form-control" id="gereja_baptis" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_baptis" class="control-label">Tanggal Baptis</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_baptis" value="<?php echo $this->input->post('tanggal_baptis'); ?>" class="has-datepicker form-control" id="tanggal_baptis" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="gereja_sidi" class="control-label">Gereja Sidi</label>
+						<div class="form-group">
+							<input type="text" name="gereja_sidi" value="<?php echo $this->input->post('gereja_sidi'); ?>" class="form-control" id="gereja_sidi" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="tanggal_sidi" class="control-label">Tanggal Sidi</label>
+						<div class="form-group">
+							<input type="text" name="tanggal_sidi" value="<?php echo $this->input->post('tanggal_sidi'); ?>" class="has-datepicker form-control" id="tanggal_sidi" />
+						</div>
+					</div>
+					<div class="col-md-6">
 						<label for="status" class="control-label">Status</label>
 						<div class="form-group">
 							<select name="status" class="form-control">
@@ -51,6 +108,7 @@
 								<?php 
 								$status_values = array(
 									'Menikah'=>'Menikah',
+									'Belum Menikah'=>'Belum Menikah',
 								);
 
 								foreach($status_values as $value => $display_text)
@@ -61,39 +119,6 @@
 								} 
 								?>
 							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="status_jemaat" class="control-label">Status Jemaat</label>
-						<div class="form-group">
-							<select name="status_jemaat" class="form-control">
-								<option value="">select</option>
-								<?php 
-								$status_jemaat_values = array(
-									'Confirm'=>'Confirm',
-									'Waiting'=>'Waiting',
-								);
-
-								foreach($status_jemaat_values as $value => $display_text)
-								{
-									$selected = ($value == $this->input->post('status_jemaat')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="password" class="control-label">Password</label>
-						<div class="form-group">
-							<input type="password" name="password" value="<?php echo $this->input->post('password'); ?>" class="form-control" id="password" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="tanggal_sidi" class="control-label">Tanggal Sidi</label>
-						<div class="form-group">
-							<input type="text" name="tanggal_sidi" value="<?php echo $this->input->post('tanggal_sidi'); ?>" class="has-datepicker form-control" id="tanggal_sidi" />
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -109,9 +134,9 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nomor induk_perkawinan" class="control-label">Nomor Induk Perkawinan</label>
+						<label for="nomor_induk_perkawinan" class="control-label">Nomor Induk Perkawinan</label>
 						<div class="form-group">
-							<input type="text" name="nomor induk_perkawinan" value="<?php echo $this->input->post('nomor induk_perkawinan'); ?>" class="form-control" id="nomor induk_perkawinan" />
+							<input type="text" name="nomor_induk_perkawinan" value="<?php echo $this->input->post('nomor_induk_perkawinan'); ?>" class="form-control" id="nomor_induk_perkawinan" />
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -145,6 +170,12 @@
 						</div>
 					</div>
 					<div class="col-md-6">
+						<label for="alasan_cerai" class="control-label">Alasan Cerai</label>
+						<div class="form-group">
+							<textarea name="alasan_cerai" class="form-control" id="alasan_cerai"><?php echo $this->input->post('alasan_cerai'); ?></textarea>
+						</div>
+					</div>
+					<div class="col-md-6">
 						<label for="pindah_gereja" class="control-label">Pindah Gereja</label>
 						<div class="form-group">
 							<input type="text" name="pindah_gereja" value="<?php echo $this->input->post('pindah_gereja'); ?>" class="form-control" id="pindah_gereja" />
@@ -169,21 +200,9 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nama_jemaat" class="control-label">Nama Jemaat</label>
+						<label for="keterangan" class="control-label">Keterangan</label>
 						<div class="form-group">
-							<input type="text" name="nama_jemaat" value="<?php echo $this->input->post('nama_jemaat'); ?>" class="form-control" id="nama_jemaat" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="username" class="control-label">Username</label>
-						<div class="form-group">
-							<input type="text" name="username" value="<?php echo $this->input->post('username'); ?>" class="form-control" id="username" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="tanggal_lahir" class="control-label">Tanggal Lahir</label>
-						<div class="form-group">
-							<input type="text" name="tanggal_lahir" value="<?php echo $this->input->post('tanggal_lahir'); ?>" class="has-datepicker form-control" id="tanggal_lahir" />
+							<textarea name="keterangan" class="form-control" id="keterangan"><?php echo $this->input->post('keterangan'); ?></textarea>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -217,53 +236,26 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="tempat_lahir" class="control-label">Tempat Lahir</label>
+						<label for="status_jemaat" class="control-label">Status Jemaat</label>
 						<div class="form-group">
-							<input type="text" name="tempat_lahir" value="<?php echo $this->input->post('tempat_lahir'); ?>" class="form-control" id="tempat_lahir" />
+							<select name="status_jemaat" class="form-control">
+								<option value="">select</option>
+								<?php 
+								$status_jemaat_values = array(
+									'Confirm'=>'Confirm',
+									'Waiting'=>'Waiting',
+								);
+
+								foreach($status_jemaat_values as $value => $display_text)
+								{
+									$selected = ($value == $this->input->post('status_jemaat')) ? ' selected="selected"' : "";
+
+									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
+								} 
+								?>
+							</select>
 						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="nama_ayah" class="control-label">Nama Ayah</label>
-						<div class="form-group">
-							<input type="text" name="nama_ayah" value="<?php echo $this->input->post('nama_ayah'); ?>" class="form-control" id="nama_ayah" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="nama_ibu" class="control-label">Nama Ibu</label>
-						<div class="form-group">
-							<input type="text" name="nama_ibu" value="<?php echo $this->input->post('nama_ibu'); ?>" class="form-control" id="nama_ibu" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="gereja_baptis" class="control-label">Gereja Baptis</label>
-						<div class="form-group">
-							<input type="text" name="gereja_baptis" value="<?php echo $this->input->post('gereja_baptis'); ?>" class="form-control" id="gereja_baptis" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="gereja_sidi" class="control-label">Gereja Sidi</label>
-						<div class="form-group">
-							<input type="text" name="gereja_sidi" value="<?php echo $this->input->post('gereja_sidi'); ?>" class="form-control" id="gereja_sidi" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="tanggal baptis" class="control-label">Tanggal Baptis</label>
-						<div class="form-group">
-							<input type="text" name="tanggal baptis" value="<?php echo $this->input->post('tanggal baptis'); ?>" class="has-datepicker form-control" id="tanggal baptis" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="alasan_cerai" class="control-label">Alasan Cerai</label>
-						<div class="form-group">
-							<textarea name="alasan_cerai" class="form-control" id="alasan_cerai"><?php echo $this->input->post('alasan_cerai'); ?></textarea>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="keterangan" class="control-label">Keterangan</label>
-						<div class="form-group">
-							<textarea name="keterangan" class="form-control" id="keterangan"><?php echo $this->input->post('keterangan'); ?></textarea>
-						</div>
-					</div>
+					</div>					
 				</div>
 			</div>
           	<div class="box-footer">

@@ -1,4 +1,4 @@
-<<link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <div class="row">
     <div class="col-md-12">
         <div class="box">
@@ -13,8 +13,6 @@
                 <table id="myTable" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-						<th>Id Struktur</th>
-						<th>Id Admin</th>
 						<th>Nama Jemaat</th>
 						<th>Jabatan</th>
 						<th>Periode</th>
@@ -24,8 +22,6 @@
                     <tbody>
                     <?php foreach($struktur_organisasi as $s){ ?>
                     <tr>
-						<td><?php echo $s['id_struktur']; ?></td>
-						<td><?php echo $s['id_admin']; ?></td>
 						<td><?php echo $s['nama_jemaat']; ?></td>
 						<td><?php echo $s['jabatan']; ?></td>
 						<td><?php echo $s['periode']; ?></td>

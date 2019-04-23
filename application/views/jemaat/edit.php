@@ -8,6 +8,12 @@
 			<div class="box-body">
 				<div class="row clearfix">
 					<div class="col-md-6">
+						<label for="nomor_induk" class="control-label">Nomor Induk</label>
+						<div class="form-group">
+							<input type="text" name="nomor_induk" value="<?php echo ($this->input->post('nomor_induk') ? $this->input->post('nomor_induk') : $jemaat['nomor_induk']); ?>" class="form-control" id="nomor_induk" />
+						</div>
+					</div>
+					<div class="col-md-6">
 						<label for="nama_jemaat" class="control-label">Nama Jemaat</label>
 						<div class="form-group">
 							<input type="text" name="nama_jemaat" value="<?php echo ($this->input->post('nama_jemaat') ? $this->input->post('nama_jemaat') : $jemaat['nama_jemaat']); ?>" class="form-control" id="nama_jemaat" />
@@ -77,9 +83,9 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="tanggal baptis" class="control-label">Tanggal Baptis</label>
+						<label for="tanggal_baptis" class="control-label">Tanggal Baptis</label>
 						<div class="form-group">
-							<input type="text" name="tanggal baptis" value="<?php echo ($this->input->post('tanggal baptis') ? $this->input->post('tanggal baptis') : $jemaat['tanggal baptis']); ?>" class="has-datepicker form-control" id="tanggal baptis" />
+							<input type="text" name="tanggal_baptis" value="<?php echo ($this->input->post('tanggal_baptis') ? $this->input->post('tanggal_baptis') : $jemaat['tanggal_baptis']); ?>" class="has-datepicker form-control" id="tanggal_baptis" />
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -128,9 +134,9 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nomor induk_perkawinan" class="control-label">Nomor Induk Perkawinan</label>
+						<label for="nomor_induk_perkawinan" class="control-label">Nomor Induk Perkawinan</label>
 						<div class="form-group">
-							<input type="text" name="nomor induk_perkawinan" value="<?php echo ($this->input->post('nomor induk_perkawinan') ? $this->input->post('nomor induk_perkawinan') : $jemaat['nomor induk_perkawinan']); ?>" class="form-control" id="nomor induk_perkawinan" />
+							<input type="text" name="nomor_induk_perkawinan" value="<?php echo ($this->input->post('nomor_induk_perkawinan') ? $this->input->post('nomor_induk_perkawinan') : $jemaat['nomor_induk_perkawinan']); ?>" class="form-control" id="nomor_induk_perkawinan" />
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -250,24 +256,6 @@
 							</select>
 						</div>
 					</div>
-
-					<div class="col-md-6">
-						<label for="id_admin" class="control-label">Admin</label>
-						<div class="form-group">
-							<select name="id_admin" class="form-control">
-								<option value="">select admin</option>
-								<?php 
-								foreach($all_admin as $admin)
-								{
-									$selected = ($admin['id_admin'] == $jemaat['id_admin']) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$admin['id_admin'].'" '.$selected.'>'.$admin['id_admin'].'</option>';
-								} 
-								?>
-							</select>
-						</div>
-					</div>
-				
 				</div>
 			</div>
 			<div class="box-footer">
