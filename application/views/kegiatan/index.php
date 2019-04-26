@@ -32,7 +32,10 @@
                         <td><?php $wkt = $k['jam_kegiatan']; echo date("H:i", strtotime($wkt)); ?></td>
                         <td><?php echo $k['tempat_kegiatan']; ?></td>
                         <td><?php echo $k['contact_person']; ?></td>
-                        <td><?php echo $k['pamflet']; ?></td>
+                        <td>
+                            <a href="<?=base_url('Kegiatan/viewMinutesFile/'.$k['pamflet'])?>" target="_blank">   <?php echo $k['pamflet']; ?>
+                            </a>
+                        </td>
                         <td><?php echo $k['dipimpin']; ?></td>
                         <td><?php echo $k['status']; ?></td>
                         <td>

@@ -27,6 +27,12 @@ class Admin_model extends CI_Model
         $this->db->from('admin');
         return $this->db->count_all_results();
     }
+
+    function get_all_kegiatan_count()
+    {
+        $this->db->from('kegiatan');
+        return $this->db->count_all_results();
+    }
         
     /*
      * Get all admin
@@ -94,5 +100,9 @@ class Admin_model extends CI_Model
        } else {
            return false;
        }
+   }
+
+   public function get_count_jemaat(){
+        $result = $this->db->count_all('jemaat')->row_array();
    }
 }

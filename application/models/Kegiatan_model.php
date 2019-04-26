@@ -15,6 +15,12 @@ class Kegiatan_model extends CI_Model
         return $this->db->get_where('kegiatan',array('id_kegiatan'=>$id_kegiatan))->row_array();
     }
     
+    function get_file($id_kegiatan)
+    {
+        $this->db->select('pamflet');
+        return $this->db->get_where('kegiatan',array('id_kegiatan'=>$id_kegiatan))->row_array();
+    }
+
     /*
      * Get all kegiatan count
      */
