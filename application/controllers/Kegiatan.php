@@ -42,9 +42,11 @@ class Kegiatan extends CI_Controller{
 
 		if($this->form_validation->run())     
         {
+            $url = 'admin_gereja/upload/';
             $config['upload_path'] = './upload/';
-            $config['allowed_types'] = 'pdf';
+            $config['allowed_types'] = 'png|jpeg|jpg';
             $config['max_size'] = 2048;
+            $imagename = 'no-image.png';
 
             $this->load->library('upload', $config);
 
@@ -53,14 +55,15 @@ class Kegiatan extends CI_Controller{
                 echo $error;
             } else {
                 $image = $this->upload->data();
-                $uploadDir = './upload/';
-                $uploadFile = $uploadDir . basename($image['file_name']);
+                $imagename = $url.$image['file_name'];
+                //$uploadDir = './upload/';
+                //$uploadFile = $uploadDir . basename($image['file_name']);
 
                 $params = array(
     				'nama_kegiatan' => $this->input->post('nama_kegiatan'),
     				'tempat_kegiatan' => $this->input->post('tempat_kegiatan'),
     				'contact_person' => $this->input->post('contact_person'),
-    				'pamflet' => basename($uploadFile),
+    				'pamflet' =>$imagename,
                     'status' => $this->input->post('status'),
                     'tanggal_kegiatan' => $this->input->post('tanggal_kegiatan'),
                     'jam_kegiatan' => $this->input->post('jam_kegiatan'),
@@ -155,8 +158,18 @@ class Kegiatan extends CI_Controller{
             show_error('The kegiatan you are trying to delete does not exist.');
     }
     
-    function viewMinutesFile(){
+    function download(){
+        // $data['kegiatan'] = $this->Kegiatan_model->get_all_kegiatan();
+
+        $this->load->helper('download');
         $data['kegiatan'] = $this->Kegiatan_model->get_all_kegiatan();
+        
+        if($this->uri->segment(3)) {
+            $data   = file_get_contents('./upload/'.$this->uri->segment(3));
+        }
+
+        $name   = $this->uri->segment(3);
+        force_download($name, $data);
         
         // if($this->uri->segment(3)) {
         //     $data   = file_get_contents('./file_path/'.$this->uri->segment(3));

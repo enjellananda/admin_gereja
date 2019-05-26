@@ -23,7 +23,7 @@ class Jemaat extends CI_Controller{
         
         $config = $this->config->item('pagination');
         $config['base_url'] = site_url('jemaat/index?');
-        $config['total_rows'] = $this->Jemaat_model->get_all_jemaat_count();
+        $config['total_rows'] = $this->Jemaat_model->get_all_jemaat_count_confirm();
         $this->pagination->initialize($config);
 
         $data['jemaat'] = $this->Jemaat_model->get_all_jemaat($params);

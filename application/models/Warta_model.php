@@ -16,6 +16,12 @@ class Warta_model extends CI_Model
         return $this->db->get_where('warta',array('id_warta'=>$id_warta))->row_array();
     }
     
+    function get_file($id_warta)
+    {
+        $this->db->select('wartajemaat');
+        return $this->db->get_where('warta',array('id_warta'=>$id_warta))->row_array();
+    }
+
     /*
      * Get all warta count
      */

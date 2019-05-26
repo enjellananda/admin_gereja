@@ -19,12 +19,22 @@ class Jemaat_model extends CI_Model
     /*
      * Get all jemaat count
      */
-    function get_all_jemaat_count()
+    function get_all_jemaat_count_waiting()
     {
-        $this->db->from('jemaat');
-        return $this->db->count_all_results();
+        //$this->db->from('jemaat');
+        //return $this->db->query("select COUNT(*) as jumlah FROM jemaat WHERE status_jemaat = 'waiting'")->num_rows();
+        return $this->db->where(['status_jemaat'=>'waiting'])->from("jemaat")->count_all_results();
+        //return $this->db->count_all_results();
     }
-        
+    
+    function get_all_jemaat_count_confirm()
+    {
+        //$this->db->from('jemaat');
+        //return $this->db->query("select COUNT(*) as jumlah FROM jemaat WHERE status_jemaat = 'waiting'")->num_rows();
+        return $this->db->where(['status_jemaat'=>'confirm'])->from("jemaat")->count_all_results();
+        //return $this->db->count_all_results();
+    }
+
     /*
      * Get all jemaat
      */

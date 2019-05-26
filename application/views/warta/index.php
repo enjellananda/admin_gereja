@@ -22,7 +22,9 @@
                     <?php foreach($warta as $w){ ?>
                     <tr>
 						<td><?php $tgl = $w['tanggal_terbit']; echo date("d F Y", strtotime($tgl)); ?></td>
-						<td><?php echo $w['wartajemaat']; ?></td>
+						<td> 
+                            <a href="<?=base_url('Warta/viewMinutesFile/'.$w['wartajemaat'])?>" target="_blank">   <?php echo $w['wartajemaat']; ?>
+                            </a></td>
 						<td>
                             <a href="<?php echo site_url('warta/edit/'.$w['id_warta']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('warta/remove/'.$w['id_warta']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>

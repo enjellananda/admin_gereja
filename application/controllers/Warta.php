@@ -141,5 +141,65 @@ class Warta extends CI_Controller{
         else
             show_error('The warta you are trying to delete does not exist.');
     }
+
+    function viewMinutesFile(){
+        $this->load->helper('download');
+        $data['warta'] = $this->Warta_model->get_all_warta();
+        
+        if($this->uri->segment(3)) {
+            $data   = file_get_contents('./upload/'.$this->uri->segment(3));
+        }
+
+        $name   = $this->uri->segment(3);
+        force_download($name, $data);
+
+
+        if(isset($_GET['id_warta'])){
+            $id = $_GET['id_warta'];
+
+            $file = $this->Warta_model->get_file($id_warta);
+
+            $fp= fopen($file->path, "r");
+
+            header("Cache-Control: maxage=1");
+            header("Pragma: public");
+            header("Content-type: application/pdf");
+            header("Content-Disposition: inline; filename=".$file->filename."");
+            header("Content-Description: PHP Generated Data");
+            header("Content-Transfer-Encoding: binary");
+            header('Content-Length:' .filesize($file->path));
+            ob_clean();
+            flush();
+            while (!feof($fp)){
+                $buff = fread($fp,1024);
+                print $buff;
+            }
+            exit;
+
+        }
+
+    //      $file = $this->Warta_model->get_file($id_warta);
+
+    //         $fp= fopen($file->path, "r");
+
+    //         header("Cache-Control: maxage=1");
+    //         header("Pragma: public");
+    //         header("Accept-Ranges: bytes");
+    //         header('Expires: 0');
+    //         header("Content-type: application/pdf");
+    //         header("Content-Disposition: inline; filename=".$file->filename."");
+    //         header("Content-Description: PHP Generated Data");
+    //         header("Content-Transfer-Encoding: binary");
+    //         header('Content-Length:' .filesize($file->path));
+    //         ob_clean();
+    //         flush();
+    //         while (!feof($fp)){
+    //             $buff = fread($fp,5000);
+    //             print $buff;
+    //         }
+    //         exit;
+
+    // }
     
+}
 }

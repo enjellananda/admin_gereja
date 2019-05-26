@@ -24,10 +24,18 @@ class Kegiatan_model extends CI_Model
     /*
      * Get all kegiatan count
      */
-    function get_all_kegiatan_count()
+    function get_all_kegiatan_count_waiting()
     {
-        $this->db->from('kegiatan');
-        return $this->db->count_all_results();
+        // $this->db->from('kegiatan');
+        // return $this->db->count_all_results();
+        return $this->db->where(['status'=>'waiting'])->from("kegiatan")->count_all_results();
+    }
+
+    function get_all_kegiatan_count_confirm()
+    {
+        // $this->db->from('kegiatan');
+        // return $this->db->count_all_results();
+        return $this->db->where(['status'=>'confirm'])->from("kegiatan")->count_all_results();
     }
         
     /*

@@ -33,7 +33,10 @@
                         <td><?php echo $k['tempat_kegiatan']; ?></td>
                         <td><?php echo $k['contact_person']; ?></td>
                         <td>
-                            <a href="<?=base_url('Kegiatan/viewMinutesFile/'.$k['pamflet'])?>" target="_blank">   <?php echo $k['pamflet']; ?>
+                            <!-- <a href="<?=base_url('Kegiatan/viewMinutesFile/'.$k['pamflet'])?>" target="_blank">   <?php echo $k['pamflet']; ?>
+                            </a> -->
+                            <a href="<?=base_url('Kegiatan/download/'.$k['pamflet'])?>">
+                                <img src="<?php echo $k['pamflet'];?>" width="100px" height="100px">
                             </a>
                         </td>
                         <td><?php echo $k['dipimpin']; ?></td>
